@@ -19,13 +19,16 @@
   height: 100%;
   display: flex;
   align-items: center;
-  font-size: 17px;
   padding: 0 10px;
 }
 
 .nav-bar section:last-child p {
   font-size: 15px;
   margin-left: 5px;
+}
+
+.nav-bar section:last-child a {
+  font-size: 22px;
 }
 
 .nav-bar section:last-child a:hover {
