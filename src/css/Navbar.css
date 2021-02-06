@@ -1,0 +1,21 @@
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: solid 1px black;
+  height: 40px;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.nav-bar section:last-child a {
+  font-size: 25px;
+}
+
+.nav-bar section:last-child a:first-child {
+  margin-right: 10px;
+}

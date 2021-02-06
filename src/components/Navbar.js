@@ -1,5 +1,6 @@
 import { IoCartOutline, AiOutlineLogin } from "react-icons/all";
 import { Link } from "react-router-dom";
+import "../css/Navbar.css";
 
 const Navbar = () => {
   return (
