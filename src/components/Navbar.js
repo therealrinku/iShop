@@ -12,9 +12,11 @@ const Navbar = () => {
       <section>
         <Link to="/cart">
           <IoCartOutline />
+          <p>Cart</p>
         </Link>
         <Link to="/login">
           <AiOutlineLogin />
+          <p>Login</p>
         </Link>
       </section>
     </div>
