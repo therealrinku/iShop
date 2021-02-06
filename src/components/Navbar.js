@@ -1,4 +1,4 @@
-import { IoCartOutline, AiOutlineLogin } from "react-icons/all";
+import { IoCartOutline } from "react-icons/all";
 import { Link } from "react-router-dom";
 import "../css/Navbar.css";
 
@@ -12,11 +12,7 @@ const Navbar = () => {
       <section>
         <Link to="/cart">
           <IoCartOutline />
-          <p>Cart</p>
-        </Link>
-        <Link to="/login">
-          <AiOutlineLogin />
-          <p>Login</p>
+          <p>My Cart</p>
         </Link>
       </section>
     </div>

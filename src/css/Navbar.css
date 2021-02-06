@@ -28,10 +28,6 @@
   margin-left: 5px;
 }
 
-.nav-bar section:last-child a:first-child {
-  margin-right: 10px;
-}
-
 .nav-bar section:last-child a:hover {
   background: rgba(0, 0, 0, 0.05);
 }
