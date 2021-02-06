@@ -1,0 +1,78 @@
+.cockpit {
+  width: 85%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.cockpit main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cockpit main section {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cockpit main section:last-child {
+  padding-left: 10vw;
+}
+
+.cockpit img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.cockpit main section:nth-child(2) button {
+  padding: 15px 20px;
+  border: none;
+  background: black;
+  color: white;
+  font-family: hack;
+  width: 200px;
+}
+
+.cockpit .toggler {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.cockpit .toggler button {
+  border: none;
+  width: 12px;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  margin-right: 5px;
+  outline: none;
+}
+
+.cockpit .toggler button:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 700px) {
+  .cockpit {
+    width: 90%;
+  }
+
+  .cockpit main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+  }
+
+  .cockpit main section {
+    width: 100%;
+  }
+
+  .cockpit img {
+    width: 100%;
+  }
+}
