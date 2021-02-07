@@ -30,31 +30,19 @@ const Cockpit = () => {
         </section>
       </main>
       <section className="toggler">
-        <button
-          style={
-            activeProductIndex === 0
-              ? { background: "rgba(0, 0, 0, 0.5)" }
-              : null
-          }
-          onClick={() => setActiveProductIndex(0)}
-        ></button>
-        <button
-          style={
-            activeProductIndex === 1
-              ? { background: "rgba(0, 0, 0, 0.5)" }
-              : null
-          }
-          onClick={() => setActiveProductIndex(1)}
-        ></button>
-        <button
-          style={
-            activeProductIndex === 2
-              ? { background: "rgba(0, 0, 0, 0.5)" }
-              : null
-          }
-          onClick={() => setActiveProductIndex(2)}
-        ></button>
-      </section>{" "}
+        {products.map((_, i) => {
+          return (
+            <button
+              style={
+                activeProductIndex === i
+                  ? { background: "rgba(0, 0, 0, 0.5)" }
+                  : null
+              }
+              onClick={() => setActiveProductIndex(i)}
+            ></button>
+          );
+        })}
+      </section>
     </div>
   );
 };
