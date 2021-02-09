@@ -16,7 +16,7 @@ const Navbar = () => {
         </Link>
         <Link to="/cart">
           <IoCartOutline />
-          <p>My Cart(2)</p>
+          <p>My Cart(3)</p>
         </Link>
       </section>
     </div>
