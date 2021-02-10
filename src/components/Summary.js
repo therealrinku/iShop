@@ -18,6 +18,11 @@ const Summary = () => {
       productImage: "https://lnv.gy/3oVhHAr",
       productPrice: 678,
     },
+    {
+      productName: "Samsung s8",
+      productImage: "https://bit.ly/3aS9KH0",
+      productPrice: 1298,
+    },
   ];
   return (
     <div className="summary">
