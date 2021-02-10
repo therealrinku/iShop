@@ -27,7 +27,7 @@ const Summary = () => {
   return (
     <div className="summary">
       <h3>Tech Products</h3>
-      <section className="hot--tech">
+      <section className="hot--tech grid">
         {techProducts.map((product, i) => {
           return (
             <Product
