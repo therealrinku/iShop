@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { VscAdd } from "react-icons/all";
 import "../css/Cockpit.css";
 
 const Cockpit = () => {
@@ -44,7 +45,10 @@ const Cockpit = () => {
         <section>
           <h1>{products[activeProductIndex].productName}</h1>
           <p>{products[activeProductIndex].productShortDescription}</p>
-          <button>See What's init</button>
+          <button>
+            <VscAdd />
+            <p>Add to Cart</p>
+          </button>
         </section>
       </main>
       <section className="toggler">

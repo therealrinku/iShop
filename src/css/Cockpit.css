@@ -28,13 +28,21 @@
 }
 
 .cockpit main section:nth-child(2) button {
-  padding: 15px 20px;
+  padding: 5px 20px;
+  height: 50px;
   border: none;
   background: black;
   color: white;
   font-family: hack;
   width: 200px;
-  border-radius:5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cockpit main section:nth-child(2) button p {
+  margin-left: 5px;
 }
 
 .cockpit .toggler {
