@@ -4,6 +4,17 @@
   margin-top: 50px;
 }
 
+.cockpit a {
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.cockpit a:hover {
+  text-decoration: underline;
+}
+
 .cockpit main {
   display: flex;
   align-items: center;

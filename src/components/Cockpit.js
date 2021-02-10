@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { VscAdd } from "react-icons/all";
+import { Link } from "react-router-dom";
 import "../css/Cockpit.css";
 
 const Cockpit = () => {
@@ -43,7 +44,9 @@ const Cockpit = () => {
           />
         </section>
         <section>
-          <h1>{products[activeProductIndex].productName}</h1>
+          <Link to={`/product/`}>
+            {products[activeProductIndex].productName}
+          </Link>
           <p>{products[activeProductIndex].productShortDescription}</p>
           <button>
             <VscAdd />
