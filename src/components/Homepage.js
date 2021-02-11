@@ -1,4 +1,5 @@
 import Cockpit from "./Cockpit";
+import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Summary from "./Summary";
 
@@ -8,6 +9,7 @@ const Homepage = () => {
       <Navbar />
       <Cockpit />
       <Summary />
+      <Footer />
     </div>
   );
 };
