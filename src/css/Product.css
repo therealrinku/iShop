@@ -1,5 +1,14 @@
-.product {
-  text-align: center;
+.product a {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.product a:hover {
+  text-decoration: underline;
 }
 
 .product img {
