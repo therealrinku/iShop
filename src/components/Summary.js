@@ -2,7 +2,7 @@ import Product from "./Product";
 import "../css/Summary.css";
 
 const Summary = () => {
-  const techProducts = [
+  const latestProducts = [
     {
       productName: "Iphone12",
       productImage: "https://bit.ly/39VLnZC",
@@ -26,9 +26,23 @@ const Summary = () => {
   ];
   return (
     <div className="summary">
-      <h3>Tech Products</h3>
-      <section className="hot--tech grid">
-        {techProducts.map((product, i) => {
+      <h3>Latest Products</h3>
+      <section className="grid">
+        {latestProducts.map((product, i) => {
+          return (
+            <Product
+              key={i}
+              productImage={product.productImage}
+              productName={product.productName}
+              productPrice={product.productPrice}
+            />
+          );
+        })}
+      </section>
+
+      <h3 style={{ marginTop: "100px" }}>Hot Products</h3>
+      <section className="grid">
+        {latestProducts.map((product, i) => {
           return (
             <Product
               key={i}
