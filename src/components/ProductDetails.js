@@ -1,26 +1,37 @@
-import { Link } from "react-router-dom";
 import { VscAdd } from "react-icons/all";
 import Navbar from "./Navbar";
+import { useParams } from "react-router-dom";
 import "../css/ProductDetails.css";
+import { connect } from "react-redux";
+import { useEffect } from "react";
+import * as productsActions from "../redux/products/productsActions";
 
-const ProductDetails = () => {
+const ProductDetails = ({ products, LOAD_PRODUCTS, error, loading }) => {
+  const params = useParams();
+  const product =
+    products.filter((product) => product.productId === params.product_id)[0] ||
+    [];
+
+  useEffect(() => {
+    if (products.length < 1) {
+      LOAD_PRODUCTS();
+    }
+  }, []);
+
   return (
     <div className="product--details">
       <Navbar />
 
       <main>
         <section>
-          <img src="https://bit.ly/39VLnZC" alt="product-name" />
+          <img src={product.productImageURL} alt="product-name" />
         </section>
         <section>
-          <h3>Iphone12</h3>
+          <h3>{product.productName}</h3>
           <ul>
-            <li>A14 Bionic, the fastest chip in a smartphone.</li>
-            <li> An edge-to-edge OLED display.</li>
-            <li>
-              Ceramic Shield with four times better drop performance. And Night
-              mode on every camera.
-            </li>
+            {product.productHighlights?.map((highlight, i) => (
+              <li key={i}>{highlight}</li>
+            ))}
           </ul>
 
           <section className="btns">
@@ -45,4 +56,18 @@ const ProductDetails = () => {
   );
 };
 
-export default ProductDetails;
+const mapStateToProps = (state) => {
+  return {
+    products: state.products.products,
+    loading: state.products.loading,
+    error: state.products.error,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    LOAD_PRODUCTS: () => dispatch(productsActions.LOAD_PRODUCTS()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);
