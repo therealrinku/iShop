@@ -1,7 +1,18 @@
 import cartActionTypes from "./cartActionTypes";
 
 const initialState = {
-  cartItems: [],
+  cartItems: [
+    {
+      productName: "Iphone12",
+      productQuantity: 1,
+      productImageURL: "https://bit.ly/39VLnZC",
+    },
+    {
+      productName: "Lenovo k9",
+      productQuantity: 4,
+      productImageURL: "https://lnv.gy/3oVhHAr",
+    },
+  ],
   loading: false,
   error: null,
 };
