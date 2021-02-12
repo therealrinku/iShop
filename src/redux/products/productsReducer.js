@@ -1,0 +1,37 @@
+import productActionTypes from "./productsActionTypes";
+
+const initialState = {
+  products: [],
+  loading: false,
+  error: null,
+};
+
+const productsReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case productActionTypes.LOAD_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload,
+        loading: false,
+        error: null,
+      };
+
+    case productActionTypes.LOADING_PRODUCTS:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case productActionTypes.SOMETHING_WENT_FISHY:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    default:
+      return {
+        ...state,
+      };
+  }
+};
