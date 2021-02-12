@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import Product from "./Product";
 
 const AllProducts = ({ products, loading, error, LOAD_PRODUCTS }) => {
-  console.log(products);
   useEffect(() => {
     if (products.length < 1) {
       LOAD_PRODUCTS();
@@ -19,7 +18,7 @@ const AllProducts = ({ products, loading, error, LOAD_PRODUCTS }) => {
         return (
           <Product
             key={i}
-            productImage={product.productImage}
+            productImage={product.productImageURL}
             productName={product.productName}
             productPrice={product.productPrice}
           />
