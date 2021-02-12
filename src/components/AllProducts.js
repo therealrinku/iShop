@@ -12,18 +12,29 @@ const AllProducts = ({ products, loading, error, LOAD_PRODUCTS }) => {
   }, []);
 
   return (
-    <div className="all--products">
+    <div>
       <Navbar />
-      {products.map((product, i) => {
-        return (
-          <Product
-            key={i}
-            productImage={product.productImageURL}
-            productName={product.productName}
-            productPrice={product.productPrice}
-          />
-        );
-      })}
+
+      <section
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+          width: "85%",
+          margin: "auto",
+          marginTop: "30px",
+        }}
+      >
+        {products.map((product, i) => {
+          return (
+            <Product
+              key={i}
+              productImage={product.productImageURL}
+              productName={product.productName}
+              productPrice={product.productPrice}
+            />
+          );
+        })}
+      </section>
     </div>
   );
 };
