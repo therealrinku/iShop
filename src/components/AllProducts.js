@@ -28,6 +28,7 @@ const AllProducts = ({ products, loading, error, LOAD_PRODUCTS }) => {
           return (
             <Product
               key={i}
+              productId={product.productId}
               productImage={product.productImageURL}
               productName={product.productName}
               productPrice={product.productPrice}
