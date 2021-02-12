@@ -1,5 +1,5 @@
 import firebase from "firebase/app";
-import "firebase/storage";
+import "firebase/firestore";
 import config from "./config";
 
 firebase.initializeApp(config);
