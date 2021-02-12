@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import Product from "./Product";
 
 const AllProducts = ({ products, loading, error, LOAD_PRODUCTS }) => {
+  console.log(products);
   useEffect(() => {
     if (products.length < 1) {
       LOAD_PRODUCTS();
@@ -38,7 +39,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    LOAD_PRODUCTS: () => dispatch(productsActions.LOAD_PRODUCTS),
+    LOAD_PRODUCTS: () => dispatch(productsActions.LOAD_PRODUCTS()),
   };
 };
 
