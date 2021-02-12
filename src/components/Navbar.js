@@ -1,23 +1,29 @@
 import { IoCartOutline, AiOutlineEye } from "react-icons/all";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../css/Navbar.css";
 
 const Navbar = () => {
   return (
     <div className="nav-bar">
       <section>
-        <Link to="/">Rinkshop</Link>
+        <NavLink to="/">Rinkshop</NavLink>
       </section>
 
       <section>
-        <Link to="/explore">
+        <NavLink
+          to="/explore"
+          activeStyle={{ background: "rgba(0, 0, 0, 0.05)" }}
+        >
           <AiOutlineEye />
           <p>Explore</p>
-        </Link>
-        <Link to="/cart">
+        </NavLink>
+        <NavLink
+          to="/cart"
+          activeStyle={{ background: " rgba(0, 0, 0, 0.05)" }}
+        >
           <IoCartOutline />
           <p>My Cart(3)</p>
-        </Link>
+        </NavLink>
       </section>
     </div>
   );
