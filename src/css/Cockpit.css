@@ -8,12 +8,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: arial;
 }
 
 .cockpit p {
   font-size: 22px;
   font-weight: bold;
-  font-family: "cascadia code";
   text-align: center;
 }
 
@@ -26,4 +26,8 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 13px;
+}
+
+.cockpit button:hover {
+  opacity: 0.9;
 }
