@@ -1,0 +1,14 @@
+.item {
+  width: 230px;
+}
+
+.item img {
+  width: 100%;
+  height: 200px;
+  border: solid 2px black;
+  object-fit: cover;
+}
+
+.item p:last-child {
+  font-weight: bold;
+}
