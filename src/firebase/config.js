@@ -1,11 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyCQD3xrFb_LP_FhIs_wyNmUcRW-8YJ_P-E",
-  authDomain: "rinkshoop.firebaseapp.com",
-  projectId: "rinkshoop",
-  storageBucket: "rinkshoop.appspot.com",
-  messagingSenderId: "1008214467743",
-  appId: "1:1008214467743:web:652dbc94f03598bd142eaa",
-  measurementId: "G-8DLQ84GG1T",
+  apiKey: "AIzaSyDYlWl8JCqhF7NVyv7NDPfFg6qAZlsi5SU",
+  authDomain: "ishoopp.firebaseapp.com",
+  projectId: "ishoopp",
+  storageBucket: "ishoopp.appspot.com",
+  messagingSenderId: "378927897344",
+  appId: "1:378927897344:web:4ccfa1cdcce473464b71e5",
+  measurementId: "G-1K6V1HHT6B",
 };
 
 export default firebaseConfig;
