@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { HiOutlineShoppingBag, FiUser } from "react-icons/all";
+import { HiOutlineShoppingBag, FiUser, HiOutlineSearch } from "react-icons/all";
 import "../css/Navbar.css";
 
 const Navbar = () => {
@@ -14,6 +14,10 @@ const Navbar = () => {
       </section>
 
       <section>
+        <button className="mobile-search-btn">
+          <HiOutlineSearch />
+          <p>Search</p>
+        </button>
         <NavLink to="/login">
           <FiUser />
           <p>Login</p>

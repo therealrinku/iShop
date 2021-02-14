@@ -11,6 +11,21 @@
   font-family: arial;
 }
 
+.nav--bar .mobile-search-btn {
+  display: none;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 17px;
+  align-items: center;
+  height: 50px;
+}
+
+.nav--bar .mobile-search-btn p {
+  margin-left: 3px;
+  font-size: 16px;
+}
+
 .nav--bar input {
   border: solid 2px black;
   padding: 4px 6px;
@@ -50,4 +65,19 @@
 
 .nav--bar section:last-child a p {
   margin-left: 3px;
+  font-size: 16px;
+}
+
+@media (max-width: 700px) {
+  .nav--bar section:nth-child(2) {
+    display: none;
+  }
+
+  .nav--bar .mobile-search-btn {
+    display: flex;
+  }
+
+  .nav--bar section:last-child a:last-child {
+    margin-left: 0px;
+  }
 }
