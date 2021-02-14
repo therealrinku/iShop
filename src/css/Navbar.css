@@ -11,7 +11,8 @@
   font-family: arial;
 }
 
-.nav--bar .mobile-search-btn {
+.nav--bar .mobile-search-btn,
+.nav--bar .cancel-btn {
   display: none;
   border: none;
   outline: none;
@@ -21,8 +22,14 @@
   height: 50px;
 }
 
+.nav--bar .cancel-btn {
+  display: flex;
+  font-size: 20px;
+  border: solid 2px black;
+  height: 50%;
+}
+
 .nav--bar .mobile-search-btn:hover {
-  cursor: pointer;
   background: rgba(0, 0, 0, 0.03);
 }
 
@@ -71,6 +78,11 @@
 .nav--bar section:last-child a p {
   margin-left: 3px;
   font-size: 15px;
+}
+
+.nav--bar .mobile-search-bar {
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 700px) {
