@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { HiOutlineShoppingBag, FiUser } from "react-icons/all";
+import "../css/Navbar.css";
 
 const Navbar = () => {
   return (
@@ -10,14 +11,17 @@ const Navbar = () => {
 
       <section>
         <input type="text" placeholder="What are you looking for?" />
-        <button>
+      </section>
+
+      <section>
+        <NavLink to="/login">
           <FiUser />
           <p>Login</p>
-        </button>
-        <button>
+        </NavLink>
+        <NavLink to="/bag">
           <HiOutlineShoppingBag />
           <p>Bag</p>
-        </button>
+        </NavLink>
       </section>
     </nav>
   );
