@@ -5,6 +5,7 @@ import "../css/Summary.css";
 
 const Summary = () => {
   const [hotProducts, setHotProducts] = useState([]);
+  const [latestProducts, setLatestProducts] = useState([]);
 
   useEffect(() => {
     db.collection("products")
@@ -18,6 +19,18 @@ const Summary = () => {
           ]);
         });
       });
+
+    db.collection("products")
+      .where("isLatest", "==", true)
+      .get()
+      .then((data) => {
+        data.forEach((doc) => {
+          setLatestProducts((prev) => [
+            ...prev,
+            { productId: doc.id, ...doc.data() },
+          ]);
+        });
+      });
   }, []);
 
   return (
@@ -25,6 +38,21 @@ const Summary = () => {
       <h4>Hottest Products</h4>
       <section>
         {hotProducts.map((product, i) => {
+          return (
+            <Item
+              key={i}
+              productId={product.productId}
+              productImageURL={product.productImageURL}
+              productName={product.productName}
+              productPrice={product.productPrice}
+            />
+          );
+        })}
+      </section>
+
+      <h4>Latest Products</h4>
+      <section>
+        {latestProducts.map((product, i) => {
           return (
             <Item
               key={i}
