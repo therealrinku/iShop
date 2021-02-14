@@ -8,41 +8,7 @@
   width: 100%;
   height: 50px;
   border-bottom: solid 1px rgba(0, 0, 0, 0.2);
-  font-family: arial;
-}
-
-.nav--bar .mobile-search-btn,
-.nav--bar .cancel-btn {
-  display: none;
-  border: none;
-  outline: none;
-  background: none;
-  font-size: 17px;
-  align-items: center;
-  height: 50px;
-}
-
-.nav--bar .cancel-btn {
-  display: flex;
-  font-size: 20px;
-  border: solid 2px black;
-  height: 50%;
-}
-
-.nav--bar .mobile-search-btn:hover {
-  background: rgba(0, 0, 0, 0.03);
-}
-
-.nav--bar .mobile-search-btn p {
-  margin-left: 3px;
-  font-size: 14px;
-}
-
-.nav--bar input {
-  border: solid 2px black;
-  padding: 4px 6px;
-  margin-right: 10px;
-  outline: none;
+  font-family: "Cascadia code";
 }
 
 .nav--bar section {
@@ -62,39 +28,11 @@
 .nav--bar section:last-child a {
   display: flex;
   align-items: center;
-  font-size: 17px;
+  font-size: 18px;
   height: 50px;
-  padding: 0 10px;
+  padding: 0 15px;
 }
 
 .nav--bar section:last-child a:hover {
   background: rgba(0, 0, 0, 0.04);
-}
-
-.nav--bar section:last-child a:last-child {
-  margin-left: 10px;
-}
-
-.nav--bar section:last-child a p {
-  margin-left: 3px;
-  font-size: 14px;
-}
-
-.nav--bar .mobile-search-bar {
-  display: flex;
-  align-items: center;
-}
-
-@media (max-width: 700px) {
-  .nav--bar section:nth-child(2) {
-    display: none;
-  }
-
-  .nav--bar .mobile-search-btn {
-    display: flex;
-  }
-
-  .nav--bar section:last-child a:last-child {
-    margin-left: 0px;
-  }
 }
