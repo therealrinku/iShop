@@ -19,6 +19,7 @@ const Summary = ({ products, GET_ITEMS }) => {
           return (
             <Item
               key={i}
+              productId={product.productId}
               productImageURL={product.productImageURL}
               productName={product.productName}
               productPrice={product.productPrice}
