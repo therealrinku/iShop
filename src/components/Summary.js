@@ -1,21 +1,30 @@
-import * as productActions from "../redux/products/productsActions";
-import { connect } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Item from "./Item";
+import db from "../firebase/db";
 import "../css/Summary.css";
 
-const Summary = ({ products, GET_ITEMS }) => {
+const Summary = () => {
+  const [hotProducts, setHotProducts] = useState([]);
+
   useEffect(() => {
-    if (products.length < 1) {
-      GET_ITEMS();
-    }
+    db.collection("products")
+      .where("isHot", "==", true)
+      .get()
+      .then((data) => {
+        data.forEach((doc) => {
+          setHotProducts((prev) => [
+            ...prev,
+            { productId: doc.id, ...doc.data() },
+          ]);
+        });
+      });
   }, []);
 
   return (
     <div className="summary">
       <h4>Hottest Products</h4>
       <section>
-        {products.map((product, i) => {
+        {hotProducts.map((product, i) => {
           return (
             <Item
               key={i}
@@ -31,16 +40,4 @@ const Summary = ({ products, GET_ITEMS }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.products.products,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    GET_ITEMS: () => dispatch(productActions.LOAD_PRODUCTS()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Summary);
+export default Summary;
