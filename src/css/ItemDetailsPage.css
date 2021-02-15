@@ -1,9 +1,9 @@
 .item--details--page main {
   width: 85%;
-  margin: auto;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 40px;
+  margin: 40px auto;
 }
 
 .item--details--page main section {
@@ -33,4 +33,33 @@
   object-fit: cover;
   margin: auto;
   height: 400px;
+}
+
+@media (max-width: 800px) {
+  .item--details--page main {
+    flex-direction: column;
+    margin-top: 0px;
+  }
+
+  .item--details--page main {
+    width: 100%;
+  }
+
+  .item--details--page main section {
+    width: 90%;
+  }
+
+  .item--details--page main section:first-child {
+    width: 100%;
+  }
+
+  .item--details--page main section:last-child {
+    padding-left: 0px;
+  }
+
+  .item--details--page img {
+    width: 100vw;
+    display: block;
+    height: auto;
+  }
 }
