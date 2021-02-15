@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
 import * as productsActions from "../redux/products/productsActions";
@@ -6,6 +6,8 @@ import Item from "../components/Item";
 import "../css/ExplorePage.css";
 
 const ExplorePage = ({ products, loading, error, LOAD_PRODUCTS }) => {
+  const [pageNo, setPageNo] = useState(1);
+
   useEffect(() => {
     if (products.length < 1) {
       LOAD_PRODUCTS();
@@ -17,23 +19,30 @@ const ExplorePage = ({ products, loading, error, LOAD_PRODUCTS }) => {
       <Navbar />
       <h4>All Products</h4>
       <section className="products">
-        {products.map((product, i) => {
-          return (
-            <Item
-              key={i}
-              productId={product.productId}
-              productImageURL={product.productImageURL}
-              productName={product.productName}
-              productPrice={product.productPrice}
-            />
-          );
-        })}
+        {products
+          .filter((_, i) => {
+            return pageNo === 1 ? i <= 7 : i >= 8;
+          })
+          .map((product, i) => {
+            return (
+              <Item
+                key={i}
+                productId={product.productId}
+                productImageURL={product.productImageURL}
+                productName={product.productName}
+                productPrice={product.productPrice}
+              />
+            );
+          })}
       </section>
 
       <section className="pagination-btns">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
+        <button onClick={() => setPageNo(1)} disabled={pageNo === 1}>
+          1
+        </button>
+        <button onClick={() => setPageNo(2)} disabled={pageNo === 2}>
+          2
+        </button>
       </section>
     </div>
   );
