@@ -58,8 +58,12 @@
   }
 
   .item--details--page img {
-    width: 100vw;
+    width: 100%;
     display: block;
     height: auto;
+  }
+
+  .item--details--page button {
+    width: 100%;
   }
 }
