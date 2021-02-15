@@ -16,3 +16,23 @@
   margin-bottom: 30px;
   font-size: 17px;
 }
+
+.summary button {
+  width: 200px;
+  margin: 20px auto;
+  border: none;
+  background: black;
+  color: white;
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.summary button:hover {
+  opacity: 0.9;
+}

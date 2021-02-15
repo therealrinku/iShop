@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import Item from "./Item";
 import db from "../firebase/db";
+import { useHistory } from "react-router-dom";
 import "../css/Summary.css";
 
 const Summary = () => {
   const [hotProducts, setHotProducts] = useState([]);
   const [latestProducts, setLatestProducts] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     db.collection("products")
@@ -64,6 +66,8 @@ const Summary = () => {
           );
         })}
       </section>
+
+      <button onClick={() => history.push("/explore")}>See All Products</button>
     </div>
   );
 };
