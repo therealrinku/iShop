@@ -1,20 +1,7 @@
 import cartActionTypes from "./cartActionTypes";
 
 const initialState = {
-  cartItems: [
-    {
-      productName: "Iphone12",
-      productQuantity: 1,
-      productImageURL: "https://bit.ly/2Ovgjrs",
-      productPrice: 999,
-    },
-    {
-      productName: "Lenovo k9",
-      productQuantity: 4,
-      productImageURL: "https://bit.ly/3rOX1vJ",
-      productPrice: 299,
-    },
-  ],
+  cartItems: [],
   loading: false,
   error: null,
 };
@@ -40,6 +27,32 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartItems: [...state.cartItems, action.payload],
+      };
+
+    case cartActionTypes.INCREASE_ITEM_QUANTITY:
+      const cartItemsCopy = [...state.cartItems];
+      const selectedItemIndex = state.cartItems.findIndex(
+        (item) => item.productId === action.payload
+      );
+      cartItemsCopy[selectedItemIndex].productQuantity =
+        cartItemsCopy[selectedItemIndex].productQuantity + 1;
+
+      return {
+        ...state,
+        cartItems: cartItemsCopy,
+      };
+
+    case cartActionTypes.DECREASE_ITEM_QUANTITY:
+      const cartItemsCopy1 = [...state.cartItems];
+      const selectedItemIndex1 = state.cartItems.findIndex(
+        (item) => item.productId === action.payload
+      );
+      cartItemsCopy1[selectedItemIndex1].productQuantity =
+        cartItemsCopy1[selectedItemIndex1].productQuantity - 1;
+
+      return {
+        ...state,
+        cartItems: cartItemsCopy1,
       };
 
     case cartActionTypes.REMOVE_FROM_CART:

@@ -11,6 +11,20 @@ export const REMOVE_FROM_CART = (productName) => (dispatch) => {
   });
 };
 
+export const INCREASE_ITEM_QUANTITY = (productId) => (dispatch) => {
+  dispatch({
+    type: cartActionTypes.INCREASE_ITEM_QUANTITY,
+    payload: productId,
+  });
+};
+
+export const DECREASE_ITEM_QUANTITY = (productId) => (dispatch) => {
+  dispatch({
+    type: cartActionTypes.DECREASE_ITEM_QUANTITY,
+    payload: productId,
+  });
+};
+
 export const LOAD_CART = () => (dispatch) => {
   dispatch({ type: cartActionTypes.LOADING_CART });
   //set cart
