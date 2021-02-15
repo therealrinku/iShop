@@ -43,12 +43,11 @@
 }
 
 .bag--page .buttons {
-  margin-top: 50px;
-  display: flex;
-  align-items: center;
+  margin: 50px 0;
 }
 
 .bag--page .checkout-btn {
   padding: 15.5px;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
