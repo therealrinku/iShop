@@ -14,9 +14,9 @@ const Navbar = ({ cartItemsLength }) => {
       </section>
 
       <section>
-        <NavLink to="/search" exact activeClassName="active-link">
+        <button>
           <HiOutlineSearch />
-        </NavLink>
+        </button>
         <NavLink to="/login" exact activeClassName="active-link">
           <FiUser />
         </NavLink>
