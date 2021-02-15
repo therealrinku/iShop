@@ -52,7 +52,7 @@ const Summary = () => {
         })}
       </section>
 
-      <h4>Latest Products</h4>
+      <h4 style={{ marginTop: "50px" }}>Latest Products</h4>
       <section>
         {latestProducts.map((product, i) => {
           return (
