@@ -1,0 +1,14 @@
+.search--box {
+  z-index: 1;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.search--box input {
+  border: solid 3px red;
+  outline: none;
+  padding: 10px 15px;
+  width: 50vw;
+  font-family: inherit;
+}
