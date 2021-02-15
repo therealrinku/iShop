@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import CartItem from "../components/CartItem";
 import Navbar from "../components/Navbar";
+import "../css/BagPage.css";
 
 const BagPage = ({ cartItems }) => {
   return (
