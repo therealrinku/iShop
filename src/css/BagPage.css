@@ -21,7 +21,8 @@
   height: 70vh;
 }
 
-.bag--page .back-to-shopping button {
+.bag--page .get-back-btn,
+.bag--page .checkout-btn {
   border: none;
   outline: none;
   background: black;
@@ -32,10 +33,22 @@
   align-items: center;
 }
 
-.bag--page .back-to-shopping button:hover {
+.bag--page .get-back-btn:hover,
+.bag--page .checkout-btn:hover {
   opacity: 0.9;
 }
 
-.bag--page .back-to-shopping button p {
+.bag--page .get-back-btn button p {
   margin-right: 5px;
+}
+
+.bag--page .buttons {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.bag--page .checkout-btn {
+  padding: 15.5px;
+  margin-right: 10px;
 }

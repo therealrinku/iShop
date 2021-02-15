@@ -28,11 +28,25 @@ const BagPage = ({ cartItems }) => {
                 />
               );
             })}
+
+            <section className="buttons">
+              <button className="checkout-btn">Checkout</button>
+              <button
+                onClick={() => history.push("/explore")}
+                className="get-back-btn"
+              >
+                <p>Continue Shopping</p>
+                <BsArrowRight />
+              </button>
+            </section>
           </section>
         ) : (
           <section className="back-to-shopping">
             <p>Your Shopping Cart is Empty.</p>
-            <button onClick={() => history.push("/explore")}>
+            <button
+              onClick={() => history.push("/explore")}
+              className="get-back-btn"
+            >
               <p>Get Back to Shopping</p>
               <BsArrowRight />
             </button>
