@@ -5,12 +5,14 @@ const initialState = {
     {
       productName: "Iphone12",
       productQuantity: 1,
-      productImageURL: "https://bit.ly/39VLnZC",
+      productImageURL: "https://bit.ly/2Ovgjrs",
+      productPrice: 999,
     },
     {
       productName: "Lenovo k9",
       productQuantity: 4,
-      productImageURL: "https://lnv.gy/3oVhHAr",
+      productImageURL: "https://bit.ly/3rOX1vJ",
+      productPrice: 299,
     },
   ],
   loading: false,

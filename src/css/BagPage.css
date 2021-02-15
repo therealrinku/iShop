@@ -4,7 +4,11 @@
 }
 
 .bag--page h4 {
-  font-size: 18px;
+  font-size: 17px;
   letter-spacing: 2px;
   text-transform: uppercase;
+}
+
+.bag--page .cart-items {
+  width: 50%;
 }
