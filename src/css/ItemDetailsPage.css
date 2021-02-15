@@ -3,7 +3,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 40px auto;
+  margin: 10px auto;
+}
+
+.item--details--page .back-btn {
+  background: inherit;
+  color: black;
+}
+
+.item--details--page .back-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .item--details--page main section {
@@ -22,6 +31,7 @@
   color: white;
   margin-top: 20px;
   font-family: inherit;
+  outline: none;
 }
 
 .item--details--page button:hover {
@@ -39,6 +49,10 @@
   .item--details--page main {
     flex-direction: column;
     margin-top: 0px;
+  }
+
+  .item--details--page .back-btn {
+    display: none;
   }
 
   .item--details--page main {

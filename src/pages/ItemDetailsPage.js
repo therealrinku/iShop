@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import "../css/ItemDetailsPage.css";
 
 const ItemDetailsPage = ({ products }) => {
   const params = useParams();
+  const history = useHistory();
   const product = products.filter((p) => p.productId === params.productId)[0];
 
   return (
@@ -12,6 +13,9 @@ const ItemDetailsPage = ({ products }) => {
       <Navbar />
       <main>
         <section>
+          <button className="back-btn" onClick={() => history.goBack()}>
+            Get Back to Shopping
+          </button>
           <img src={product.productImageURL} alt={`${product.productName}`} />
         </section>
 
