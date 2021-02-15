@@ -30,7 +30,10 @@
   padding: 0 20px;
 }
 
-.nav--bar section:last-child a:hover,
-.nav--bar .active {
+.nav--bar section:last-child a:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.nav--bar .active-link {
   background: rgba(0, 0, 0, 0.04);
 }

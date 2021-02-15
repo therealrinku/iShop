@@ -6,17 +6,19 @@ const Navbar = () => {
   return (
     <nav className="nav--bar">
       <section>
-        <NavLink to="/">iShop</NavLink>
+        <NavLink to="/" exact>
+          iShop
+        </NavLink>
       </section>
 
       <section>
-        <NavLink to="/search" activeClassName="active">
+        <NavLink to="/search" exact activeClassName="active-link">
           <HiOutlineSearch />
         </NavLink>
-        <NavLink to="/login" activeClassName="active">
+        <NavLink to="/login" exact activeClassName="active-link">
           <FiUser />
         </NavLink>
-        <NavLink to="/bag" activeClassName="active">
+        <NavLink to="/bag" exact activeClassName="active-link">
           <HiOutlineShoppingBag />
         </NavLink>
       </section>
