@@ -12,3 +12,30 @@
 .bag--page .cart-items {
   width: 50%;
 }
+
+.bag--page .back-to-shopping {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.bag--page .back-to-shopping button {
+  border: none;
+  outline: none;
+  background: black;
+  color: white;
+  padding: 2px 16px;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.bag--page .back-to-shopping button:hover {
+  opacity: 0.9;
+}
+
+.bag--page .back-to-shopping button p {
+  margin-right: 5px;
+}
