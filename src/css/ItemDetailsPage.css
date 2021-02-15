@@ -1,0 +1,36 @@
+.item--details--page main {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.item--details--page main section {
+  width: 50%;
+}
+
+.item--details--page main section:last-child {
+  padding-left: 8vw;
+}
+
+.item--details--page button {
+  border: none;
+  background: black;
+  padding: 15px;
+  width: 50%;
+  color: white;
+  margin-top: 20px;
+  font-family: inherit;
+}
+
+.item--details--page button:hover {
+  opacity: 0.9;
+}
+
+.item--details--page img {
+  width: 100%;
+  object-fit: cover;
+  margin: auto;
+  height: 400px;
+}

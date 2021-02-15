@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
 import { useParams } from "react-router-dom";
+import "../css/ItemDetailsPage.css";
 
 const ItemDetailsPage = ({ products }) => {
   const params = useParams();
@@ -9,20 +10,20 @@ const ItemDetailsPage = ({ products }) => {
   return (
     <div className="item--details--page">
       <Navbar />
-      <div>
+      <main>
         <section>
           <img src={product.productImageURL} alt={`${product.productName}`} />
         </section>
 
         <section>
           <h4>{product.productName}</h4>
-          <p>{product.productPrice}</p>
+          <p>${product.productPrice}</p>
           {product.productSpecs.map((spec, i) => {
             return <li key={i}>{spec}</li>;
           })}
           <button>Add to Bag</button>
         </section>
-      </div>
+      </main>
     </div>
   );
 };
