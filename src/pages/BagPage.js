@@ -20,6 +20,7 @@ const BagPage = ({ cartItems }) => {
             {cartItems.map((item) => {
               return (
                 <CartItem
+                  itemId={item.productId}
                   itemImageURL={item.productImageURL}
                   itemName={item.productName}
                   itemPrice={item.productPrice}
