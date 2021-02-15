@@ -43,7 +43,7 @@ const BagPage = ({ cartItems }) => {
           </section>
         ) : (
           <section className="back-to-shopping">
-            <p>Your Shopping Cart is Empty.</p>
+            <p>Your Shopping Bag is Empty.</p>
             <button
               onClick={() => history.push("/explore")}
               className="get-back-btn"
