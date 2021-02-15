@@ -8,7 +8,7 @@ const styles = {
 };
 
 const Backdrop = ({ toggle }) => {
-  return <div style={styles} toggle={toggle}></div>;
+  return <div style={styles} onClick={toggle}></div>;
 };
 
 export default Backdrop;
