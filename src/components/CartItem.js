@@ -1,3 +1,5 @@
+import "../css/CartItem.css";
+
 const CartItem = ({ itemImageURL, itemName, itemQuantity, itemPrice }) => {
   return (
     <div className="cart--item">
