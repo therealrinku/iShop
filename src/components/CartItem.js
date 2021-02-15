@@ -27,7 +27,12 @@ const CartItem = ({
             -
           </button>
           <p>{itemQuantity}</p>
-          <button onClick={() => INCREASE_ITEM_QUANTITY(itemId)}>+</button>
+          <button
+            onClick={() => INCREASE_ITEM_QUANTITY(itemId)}
+            disabled={itemQuantity === 5}
+          >
+            +
+          </button>
           <button
             style={{ marginLeft: "4px" }}
             onClick={() => REMOVE_FROM_CART(itemId)}
