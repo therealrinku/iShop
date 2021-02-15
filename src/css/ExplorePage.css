@@ -12,3 +12,23 @@
   margin-bottom: 30px;
   font-size: 17px;
 }
+
+.explore--page .pagination-btns {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.explore--page .pagination-btns button {
+  border: none;
+  background: black;
+  color: white;
+  padding: 10px 15px;
+  margin-right: 5px;
+}
+
+.explore--page .pagination-btns button:hover {
+  opacity: 0.9;
+}
