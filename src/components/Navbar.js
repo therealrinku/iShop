@@ -10,13 +10,13 @@ const Navbar = () => {
       </section>
 
       <section>
-        <NavLink to="/search">
+        <NavLink to="/search" activeClassName="active">
           <HiOutlineSearch />
         </NavLink>
-        <NavLink to="/login">
+        <NavLink to="/login" activeClassName="active">
           <FiUser />
         </NavLink>
-        <NavLink to="/bag">
+        <NavLink to="/bag" activeClassName="active">
           <HiOutlineShoppingBag />
         </NavLink>
       </section>
