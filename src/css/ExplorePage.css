@@ -14,11 +14,9 @@
 }
 
 .explore--page .pagination-btns {
-  width: 85%;
-  margin: auto;
+  margin: 60px auto;
   display: flex;
   justify-content: center;
-  margin-top: 50px;
 }
 
 .explore--page .pagination-btns button {
@@ -27,6 +25,7 @@
   color: white;
   padding: 10px 15px;
   margin-right: 5px;
+  font-family: inherit;
 }
 
 .explore--page .pagination-btns button:hover {
