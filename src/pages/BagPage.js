@@ -14,10 +14,10 @@ const BagPage = ({ cartItems }) => {
           {cartItems.map((item) => {
             return (
               <CartItem
-                itemImageURL={item.itemImageURL}
-                itemName={item.itemName}
-                itemPrice={item.itemPrice}
-                itemQuantity={item.itemQuantity}
+                itemImageURL={item.productImageURL}
+                itemName={item.productName}
+                itemPrice={item.productPrice}
+                itemQuantity={item.productQuantity}
               />
             );
           })}
