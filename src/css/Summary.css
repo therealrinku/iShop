@@ -37,3 +37,9 @@
 .summary button:hover {
   opacity: 0.9;
 }
+
+@media (max-width: 590px) {
+  .summary section {
+    width: 100%;
+  }
+}
