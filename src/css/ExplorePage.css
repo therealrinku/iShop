@@ -40,3 +40,9 @@
 .explore--page .pagination-btns button:disabled:hover {
   cursor: unset;
 }
+
+@media (max-width: 590px) {
+  .explore--page .products {
+    width: 100%;
+  }
+}
