@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import CartItem from "../components/CartItem";
 import Navbar from "../components/Navbar";
 
 const BagPage = ({ cartItems }) => {
@@ -8,7 +9,18 @@ const BagPage = ({ cartItems }) => {
 
       <main>
         <h4>My Bag</h4>
-        <section className="cart-items"></section>
+        <section className="cart-items">
+          {cartItems.map((item) => {
+            return (
+              <CartItem
+                itemImageURL={item.itemImageURL}
+                itemName={item.itemName}
+                itemPrice={item.itemPrice}
+                itemQuantity={item.itemQuantity}
+              />
+            );
+          })}
+        </section>
       </main>
     </div>
   );
