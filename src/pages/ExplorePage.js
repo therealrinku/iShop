@@ -37,6 +37,7 @@ const ExplorePage = ({ products, loading, error, LOAD_PRODUCTS }) => {
       </section>
 
       <section className="pagination-btns">
+        <button onClick={(prev) => setPageNo(prev + 1)}>Next Page</button>
         <button onClick={() => setPageNo(1)} disabled={pageNo === 1}>
           1
         </button>
