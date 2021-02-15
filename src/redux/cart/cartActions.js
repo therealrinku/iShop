@@ -4,10 +4,10 @@ export const ADD_TO_CART = (productData) => (dispatch) => {
   dispatch({ type: cartActionTypes.ADD_TO_CART, payload: productData });
 };
 
-export const REMOVE_FROM_CART = (productName) => (dispatch) => {
+export const REMOVE_FROM_CART = (productId) => (dispatch) => {
   dispatch({
     type: cartActionTypes.REMOVE_FROM_CART,
-    payload: productName,
+    payload: productId,
   });
 };
 

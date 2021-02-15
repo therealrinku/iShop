@@ -2,14 +2,30 @@ import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
 import { useParams, useHistory } from "react-router-dom";
 import { useState } from "react";
+import * as cartActions from "../redux/cart/cartActions";
 import "../css/ItemDetailsPage.css";
 
-const ItemDetailsPage = ({ products }) => {
+const ItemDetailsPage = ({
+  cartItems,
+  products,
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+}) => {
   const params = useParams();
   const history = useHistory();
   const product = products.filter((p) => p.productId === params.productId)[0];
 
   const [itemQuantity, setItemQuantity] = useState(1);
+  const itemIsInCart =
+    cartItems.findIndex((item) => item.productId === product.productId) >= 0;
+
+  const ADD_OR_REMOVE_FROM_BAG = () => {
+    if (itemIsInCart) {
+      REMOVE_FROM_CART(product.productId);
+    } else {
+      ADD_TO_CART({ ...product, productQuantity: itemQuantity });
+    }
+  };
 
   return (
     <div className="item--details--page">
@@ -43,7 +59,9 @@ const ItemDetailsPage = ({ products }) => {
               +
             </button>
           </div>
-          <button>Add to Bag</button>
+          <button onClick={ADD_OR_REMOVE_FROM_BAG}>
+            {!itemIsInCart ? "Add to Bag" : "Remove from Bag"}
+          </button>
         </section>
       </main>
     </div>
@@ -52,8 +70,18 @@ const ItemDetailsPage = ({ products }) => {
 
 const mapStateToProps = (state) => {
   return {
+    cartItems: state.cart.cartItems,
     products: state.products.products,
   };
 };
 
-export default connect(mapStateToProps)(ItemDetailsPage);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    ADD_TO_CART: (productData) =>
+      dispatch(cartActions.ADD_TO_CART(productData)),
+    REMOVE_FROM_CART: (productId) =>
+      dispatch(cartActions.REMOVE_FROM_CART(productId)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemDetailsPage);
