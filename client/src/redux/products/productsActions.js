@@ -13,6 +13,7 @@ export const LOAD_PRODUCTS = () => async (dispatch) => {
         data.forEach((e) => {
           finalData.push({ productId: e.id, ...e.data() });
         });
+        console.log(finalData);
         dispatch({
           type: productActionTypes.LOAD_PRODUCTS,
           payload: finalData,
