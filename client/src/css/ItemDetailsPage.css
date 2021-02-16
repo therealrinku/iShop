@@ -109,7 +109,7 @@
     height: auto;
   }
 
-  .item--details--page button {
+  .item--details--page main section button {
     width: 100%;
   }
 }
