@@ -1,20 +1,32 @@
 import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
 import { useParams, useHistory } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as cartActions from "../redux/cart/cartActions";
+import axios from "axios";
+import server_url from "../server_url";
 import "../css/ItemDetailsPage.css";
+import Loader from "../components/Loader";
 
-const ItemDetailsPage = ({
-  cartItems,
-  products,
-  ADD_TO_CART,
-  REMOVE_FROM_CART,
-}) => {
+const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
   const params = useParams();
   const history = useHistory();
-  const product =
-    products.filter((p) => p.product_id === params.productId)[0] || [];
+  const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(server_url + `/product/fetchProduct/${params.productId}`)
+      .then((res) => {
+        setLoading(false);
+        setProduct(res.data);
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(err.message);
+      });
+  }, []);
 
   const [itemQuantity, setItemQuantity] = useState(1);
   const itemIsInCart =
@@ -31,18 +43,21 @@ const ItemDetailsPage = ({
   return (
     <div className="item--details--page">
       <Navbar />
-      <main>
+      <main style={loading ? { display: "none" } : null}>
         <section>
           <button className="back-btn" onClick={() => history.goBack()}>
             Get Back to Shopping
           </button>
-          <img src={product.product_image_url} alt={`${product.productName}`} />
+          <img
+            src={product[0]?.product_image_url}
+            alt={`${product[0]?.product_name}`}
+          />
         </section>
 
         <section>
-          <h4>{product.product_name}</h4>
-          <p>${product.product_price}</p>
-          {product.product_specs?.map((spec, i) => {
+          <h4>{product[0]?.product_name}</h4>
+          <p>${product[0]?.product_price}</p>
+          {product[0]?.product_specs?.map((spec, i) => {
             return <li key={i}>{spec}</li>;
           })}
           <div>
@@ -65,6 +80,20 @@ const ItemDetailsPage = ({
           </button>
         </section>
       </main>
+
+      {loading ? (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "80vh",
+          }}
+        >
+          <Loader />
+        </div>
+      ) : null}
     </div>
   );
 };
@@ -72,7 +101,6 @@ const ItemDetailsPage = ({
 const mapStateToProps = (state) => {
   return {
     cartItems: state.cart.cartItems,
-    products: state.products.products,
   };
 };
 
