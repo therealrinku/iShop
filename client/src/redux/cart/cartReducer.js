@@ -7,7 +7,6 @@ const initialState = {
 };
 
 const cartReducer = (state = initialState, action) => {
-  console.log(state);
   switch (action.type) {
     case cartActionTypes.LOADING_CART:
       return {
@@ -33,7 +32,7 @@ const cartReducer = (state = initialState, action) => {
     case cartActionTypes.INCREASE_ITEM_QUANTITY:
       const cartItemsCopy = [...state.cartItems];
       const selectedItemIndex = state.cartItems.findIndex(
-        (item) => item.productId === action.payload
+        (item) => item.product_id === action.payload
       );
       cartItemsCopy[selectedItemIndex].productQuantity =
         cartItemsCopy[selectedItemIndex].productQuantity + 1;
@@ -46,7 +45,7 @@ const cartReducer = (state = initialState, action) => {
     case cartActionTypes.DECREASE_ITEM_QUANTITY:
       const cartItemsCopy1 = [...state.cartItems];
       const selectedItemIndex1 = state.cartItems.findIndex(
-        (item) => item.productId === action.payload
+        (item) => item.product_id === action.payload
       );
       cartItemsCopy1[selectedItemIndex1].productQuantity =
         cartItemsCopy1[selectedItemIndex1].productQuantity - 1;
