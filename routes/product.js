@@ -1,6 +1,17 @@
 const router = require("express").Router();
 const db = require("../db");
 
+router.get("/searchProduct/:query", (req, res) => {
+  db.query(
+    `SELECT * FROM products WHERE productName LIKE '$${req.params.query
+      .trim()
+      .toLowerCase()}'`,
+    (err, res1) => {
+      res.send(res1.rows);
+    }
+  );
+});
+
 router.get("/fetchProduct/:product_id", (req, res) => {
   db.query(
     `SELECT * FROM products WHERE (product_id)::text='${req.params.product_id}'`,
