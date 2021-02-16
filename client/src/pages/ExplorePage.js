@@ -27,10 +27,10 @@ const ExplorePage = ({ products, loading, error, LOAD_PRODUCTS }) => {
             return (
               <Item
                 key={i}
-                productId={product.productId}
-                productImageURL={product.productImageURL}
-                productName={product.productName}
-                productPrice={product.productPrice}
+                productId={product.product_id}
+                productImageURL={product.product_image_url}
+                productName={product.product_name}
+                productPrice={product.product_price}
               />
             );
           })}

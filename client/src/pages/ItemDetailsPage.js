@@ -14,15 +14,15 @@ const ItemDetailsPage = ({
   const params = useParams();
   const history = useHistory();
   const product =
-    products.filter((p) => p.productId === params.productId)[0] || [];
+    products.filter((p) => p.product_id === params.productId)[0] || [];
 
   const [itemQuantity, setItemQuantity] = useState(1);
   const itemIsInCart =
-    cartItems.findIndex((item) => item.productId === product.productId) >= 0;
+    cartItems.findIndex((item) => item.product_id === product.product_id) >= 0;
 
   const ADD_OR_REMOVE_FROM_BAG = () => {
     if (itemIsInCart) {
-      REMOVE_FROM_CART(product.productId);
+      REMOVE_FROM_CART(product.product_id);
     } else {
       ADD_TO_CART({ ...product, productQuantity: itemQuantity });
     }
@@ -36,13 +36,13 @@ const ItemDetailsPage = ({
           <button className="back-btn" onClick={() => history.goBack()}>
             Get Back to Shopping
           </button>
-          <img src={product.productImageURL} alt={`${product.productName}`} />
+          <img src={product.product_image_url} alt={`${product.productName}`} />
         </section>
 
         <section>
-          <h4>{product.productName}</h4>
-          <p>${product.productPrice}</p>
-          {product.productSpecs?.map((spec, i) => {
+          <h4>{product.product_name}</h4>
+          <p>${product.product_price}</p>
+          {product.product_specs?.map((spec, i) => {
             return <li key={i}>{spec}</li>;
           })}
           <div>
