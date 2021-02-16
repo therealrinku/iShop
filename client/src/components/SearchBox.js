@@ -1,16 +1,21 @@
+import { useEffect } from "react";
 import { useState } from "react";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import server_url from "../server_url";
 import "../css/SearchBox.css";
 
-const SearchBox = ({ products, toggle }) => {
+const SearchBox = ({ toggle }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
-  const matchedProducts = products.filter((product) =>
-    product.product_name
-      .toLowerCase()
-      .includes(searchQuery.trim().toLowerCase())
-  );
+  useEffect(() => {
+    axios
+      .get(server_url + `/product/searchProduct/${searchQuery}`)
+      .then((res) => {
+        setSearchResults(res.data);
+      });
+  }, [searchQuery]);
 
   return (
     <div className="search--box">
@@ -23,8 +28,8 @@ const SearchBox = ({ products, toggle }) => {
           autoFocus
         />
         <div className="search-results">
-          {matchedProducts.length >= 1 ? (
-            matchedProducts.map((product) => {
+          {searchResults.length >= 1 ? (
+            searchResults.map((product) => {
               return (
                 <Link
                   to={`/product/${product.product_id}`}
@@ -36,19 +41,13 @@ const SearchBox = ({ products, toggle }) => {
                 </Link>
               );
             })
-          ) : (
+          ) : searchQuery.trim().length > 0 ? (
             <p style={{ textAlign: "center" }}>Nothing found</p>
-          )}
+          ) : null}
         </div>
       </section>
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.products.products,
-  };
-};
-
-export default connect(mapStateToProps)(SearchBox);
+export default SearchBox;
