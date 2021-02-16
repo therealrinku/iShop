@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import * as productsActions from "../redux/products/productsActions";
 import { connect } from "react-redux";
 import "../css/Summary.css";
+import { Fragment } from "react";
+import Loader from "./Loader";
 
 const Summary = ({
   latestProducts,
@@ -27,7 +29,7 @@ const Summary = ({
   return (
     <div className="summary">
       <h4>Hottest Products</h4>
-      <section>
+      <section style={loading ? { display: "none" } : null}>
         {hottestProducts.map((product, i) => {
           return (
             <Item
@@ -41,8 +43,21 @@ const Summary = ({
         })}
       </section>
 
-      <h4 style={{ marginTop: "50px" }}>Latest Products</h4>
-      <section>
+      {loading ? (
+        <Fragment>
+          <Loader />
+        </Fragment>
+      ) : null}
+
+      <h4
+        style={{ marginTop: "50px" }}
+        style={
+          loading || latestProducts.length === 0 ? { display: "none" } : null
+        }
+      >
+        Latest Products
+      </h4>
+      <section style={loading ? { display: "none" } : null}>
         {latestProducts.map((product, i) => {
           return (
             <Item

@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
 import * as productsActions from "../redux/products/productsActions";
 import Item from "../components/Item";
+import Loader from "../components/Loader";
 import "../css/ExplorePage.css";
 
 const ExplorePage = ({ products, loading, error, LOAD_PRODUCTS }) => {
@@ -18,7 +19,11 @@ const ExplorePage = ({ products, loading, error, LOAD_PRODUCTS }) => {
     <div className="explore--page">
       <Navbar />
       <h4>All Products</h4>
-      <section className="products">
+
+      <section
+        className="products"
+        style={loading || products.length === 0 ? { display: "none" } : null}
+      >
         {products
           .filter((_, i) => {
             return pageNo === 1 ? i <= 7 : i >= 8;
@@ -36,7 +41,10 @@ const ExplorePage = ({ products, loading, error, LOAD_PRODUCTS }) => {
           })}
       </section>
 
-      <section className="pagination-btns">
+      <section
+        className="pagination-btns"
+        style={loading || products.length === 0 ? { display: "none" } : null}
+      >
         <button onClick={() => setPageNo(pageNo === 1 ? 2 : 1)}>
           {pageNo === 1 ? "Next Page" : "Previous Page"}
         </button>
@@ -47,6 +55,12 @@ const ExplorePage = ({ products, loading, error, LOAD_PRODUCTS }) => {
           2
         </button>
       </section>
+
+      {loading ? (
+        <Fragment>
+          <Loader />
+        </Fragment>
+      ) : null}
     </div>
   );
 };
