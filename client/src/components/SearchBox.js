@@ -27,12 +27,12 @@ const SearchBox = ({ products, toggle }) => {
             matchedProducts.map((product) => {
               return (
                 <Link
-                  to={`/product/${product.productId}`}
-                  key={product.productId}
+                  to={`/product/${product.product_id}`}
+                  key={product.product_id}
                   onClick={toggle}
                 >
-                  <p>{product.productName}</p>
-                  <p>${product.productPrice}</p>
+                  <p>{product.product_name}</p>
+                  <p>${product.product_price}</p>
                 </Link>
               );
             })
