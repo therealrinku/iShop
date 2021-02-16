@@ -41,7 +41,7 @@ const Navbar = ({ cartItemsLength }) => {
           </NavLink>
 
           <NavLink to="/bag" exact activeClassName="active-link">
-            <Badge badgeContent={cartItemsLength} color="black" showZero>
+            <Badge badgeContent={cartItemsLength} showZero>
               <HiOutlineShoppingBag />
             </Badge>
           </NavLink>
