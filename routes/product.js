@@ -1,6 +1,15 @@
 const router = require("express").Router();
 const db = require("../db");
 
+router.get("/fetchProduct/:product_id", (req, res) => {
+  db.query(
+    `SELECT * FROM products WHERE (product_id)::text='${req.params.product_id}'`,
+    (err, res1) => {
+      res.send(res1.rows);
+    }
+  );
+});
+
 router.get("/fetchLatest", (req, res) => {
   db.query(`SELECT * FROM products WHERE is_latest='${true}'`, (err, res1) => {
     res.send(res1.rows);
