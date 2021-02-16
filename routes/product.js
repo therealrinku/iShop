@@ -1,11 +1,5 @@
 const router = require("express").Router();
-const { route } = require("../app");
 const db = require("../db");
-
-router.get("/test/:hello", (req, res) => {
-  console.log(req.params);
-  res.send("hello");
-});
 
 router.get("/fetchLatest", (req, res) => {
   db.query(`SELECT * FROM products WHERE is_latest='${true}'`, (err, res1) => {
