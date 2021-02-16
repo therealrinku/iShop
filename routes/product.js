@@ -3,7 +3,7 @@ const db = require("../db");
 
 router.get("/searchProduct/:query", (req, res) => {
   db.query(
-    `SELECT * FROM products WHERE product_name LIKE '%${req.params.query
+    `SELECT * FROM products WHERE product_name LIKE '_${req.params.query
       .trim()
       .toLowerCase()}%'`,
     (err, res1) => {
