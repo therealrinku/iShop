@@ -25,7 +25,7 @@ const BagPage = ({ cartItems }) => {
                   itemImageURL={item.product_image_url}
                   itemName={item.product_name}
                   itemPrice={item.product_price}
-                  itemQuantity={item.product_quantity}
+                  itemQuantity={item.productQuantity}
                 />
               );
             })}
