@@ -13,7 +13,8 @@ const ItemDetailsPage = ({
 }) => {
   const params = useParams();
   const history = useHistory();
-  const product = products.filter((p) => p.productId === params.productId)[0];
+  const product =
+    products.filter((p) => p.productId === params.productId)[0] || [];
 
   const [itemQuantity, setItemQuantity] = useState(1);
   const itemIsInCart =
@@ -41,7 +42,7 @@ const ItemDetailsPage = ({
         <section>
           <h4>{product.productName}</h4>
           <p>${product.productPrice}</p>
-          {product.productSpecs.map((spec, i) => {
+          {product.productSpecs?.map((spec, i) => {
             return <li key={i}>{spec}</li>;
           })}
           <div>
