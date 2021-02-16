@@ -30,13 +30,14 @@ const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
 
   const [itemQuantity, setItemQuantity] = useState(1);
   const itemIsInCart =
-    cartItems.findIndex((item) => item.product_id === product.product_id) >= 0;
+    cartItems.findIndex((item) => item.product_id === product[0]?.product_id) >=
+    0;
 
   const ADD_OR_REMOVE_FROM_BAG = () => {
     if (itemIsInCart) {
       REMOVE_FROM_CART(product.product_id);
     } else {
-      ADD_TO_CART({ ...product, productQuantity: itemQuantity });
+      ADD_TO_CART({ ...product[0], productQuantity: itemQuantity });
     }
   };
 

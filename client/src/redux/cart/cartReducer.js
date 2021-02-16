@@ -7,6 +7,7 @@ const initialState = {
 };
 
 const cartReducer = (state = initialState, action) => {
+  console.log(state);
   switch (action.type) {
     case cartActionTypes.LOADING_CART:
       return {
