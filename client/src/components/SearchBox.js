@@ -7,7 +7,9 @@ const SearchBox = ({ products, toggle }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const matchedProducts = products.filter((product) =>
-    product.productName.toLowerCase().includes(searchQuery.trim().toLowerCase())
+    product.product_name
+      .toLowerCase()
+      .includes(searchQuery.trim().toLowerCase())
   );
 
   return (
