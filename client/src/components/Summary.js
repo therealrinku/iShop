@@ -1,52 +1,41 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Item from "./Item";
-import db from "../firebase/db";
 import { useHistory } from "react-router-dom";
+import * as productsActions from "../redux/products/productsActions";
+import { connect } from "react-redux";
 import "../css/Summary.css";
 
-const Summary = () => {
-  const [hotProducts, setHotProducts] = useState([]);
-  const [latestProducts, setLatestProducts] = useState([]);
+const Summary = ({
+  latestProducts,
+  hottestProducts,
+  loading,
+  error,
+  LOAD_HOTTEST_PRODUCTS,
+  LOAD_LATEST_PRODUCTS,
+}) => {
   const history = useHistory();
 
   useEffect(() => {
-    db.collection("products")
-      .where("isHot", "==", true)
-      .get()
-      .then((data) => {
-        data.forEach((doc) => {
-          setHotProducts((prev) => [
-            ...prev,
-            { productId: doc.id, ...doc.data() },
-          ]);
-        });
-      });
-
-    db.collection("products")
-      .where("isLatest", "==", true)
-      .get()
-      .then((data) => {
-        data.forEach((doc) => {
-          setLatestProducts((prev) => [
-            ...prev,
-            { productId: doc.id, ...doc.data() },
-          ]);
-        });
-      });
+    if (latestProducts.length === 0) {
+      LOAD_LATEST_PRODUCTS();
+    }
+    if (hottestProducts.length === 0) {
+      LOAD_HOTTEST_PRODUCTS();
+    }
   }, []);
 
   return (
     <div className="summary">
       <h4>Hottest Products</h4>
       <section>
-        {hotProducts.map((product, i) => {
+        {hottestProducts.map((product, i) => {
           return (
             <Item
               key={i}
-              productId={product.productId}
-              productImageURL={product.productImageURL}
-              productName={product.productName}
-              productPrice={product.productPrice}
+              productId={product.product_id}
+              productImageURL={product.product_image_url}
+              productName={product.product_name}
+              productPrice={product.product_price}
             />
           );
         })}
@@ -58,10 +47,10 @@ const Summary = () => {
           return (
             <Item
               key={i}
-              productId={product.productId}
-              productImageURL={product.productImageURL}
-              productName={product.productName}
-              productPrice={product.productPrice}
+              productId={product.product_id}
+              productImageURL={product.product_image_url}
+              productName={product.product_name}
+              productPrice={product.product_price}
             />
           );
         })}
@@ -72,4 +61,22 @@ const Summary = () => {
   );
 };
 
-export default Summary;
+const mapStateToProps = (state) => {
+  return {
+    latestProducts: state.products.latestProducts,
+    hottestProducts: state.products.hottestProducts,
+    loading: state.products.loading,
+    error: state.products.error,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    LOAD_HOTTEST_PRODUCTS: () =>
+      dispatch(productsActions.LOAD_HOTTEST_PRODUCTS()),
+    LOAD_LATEST_PRODUCTS: () =>
+      dispatch(productsActions.LOAD_LATEST_PRODUCTS()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Summary);
