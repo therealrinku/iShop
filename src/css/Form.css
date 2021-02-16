@@ -1,0 +1,31 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input,
+form button {
+  border: solid 1px black;
+  padding: 10px 5px;
+  outline: none;
+  margin-top: 10px;
+  font-family: inherit;
+}
+
+form label {
+  margin-top: 10px;
+}
+
+form input:focus {
+  border: solid 3px rgba(0, 0, 0, 0.2);
+}
+
+form button {
+  background: black;
+  color: white;
+  margin-top: 20px;
+}
+
+form button:hover {
+  opacity: 0.9;
+}
