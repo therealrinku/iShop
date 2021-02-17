@@ -29,7 +29,7 @@ router.post("/signup", (req, res) => {
           if (!err) {
             db.query(
               `INSERT INTO users(email,password,account_created_on,is_admin)
-              VALUES('${req.body.email}','${hash}','${new Date()}','${true}')
+              VALUES('${req.body.email}','${hash}','${new Date()}','${false}')
             `,
               (err2, res2) => {
                 if (!err2) res.send("success");
