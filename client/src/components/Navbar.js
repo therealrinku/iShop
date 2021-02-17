@@ -7,7 +7,7 @@ import SearchBox from "./SearchBox";
 import Backdrop from "./Backdrop";
 import "../css/Navbar.css";
 
-const Navbar = ({ cartItemsLength }) => {
+const Navbar = ({ cartItemsLength, user }) => {
   const [showSearchBox, setShowSearchBox] = useState(false);
 
   const toggleOverflow = () => {
@@ -36,7 +36,11 @@ const Navbar = ({ cartItemsLength }) => {
           <button onClick={toggleSearchBox}>
             <HiOutlineSearch />
           </button>
-          <NavLink to="/login" exact activeClassName="active-link">
+          <NavLink
+            to={user ? "/profile" : "/login"}
+            exact
+            activeClassName="active-link"
+          >
             <FiUser />
           </NavLink>
 
@@ -61,6 +65,7 @@ const Navbar = ({ cartItemsLength }) => {
 const mapStateToProps = (state) => {
   return {
     cartItemsLength: state.cart.cartItems.length,
+    user: state.user.userData,
   };
 };
 
