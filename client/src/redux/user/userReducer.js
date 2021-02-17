@@ -1,7 +1,7 @@
 import userActionTypes from "./userActionTypes";
 
 const initialState = {
-  userData: { email: null, is_admin: false },
+  userData: null,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -16,7 +16,7 @@ const userReducer = (state = initialState, action) => {
     case userActionTypes.LOGOUT:
       return {
         ...state,
-        userData: { email: null, is_admin: null },
+        userData: null,
       };
 
     default:
