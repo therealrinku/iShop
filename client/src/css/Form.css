@@ -12,6 +12,10 @@ form button {
   font-family: inherit;
 }
 
+form button:disabled{
+  opacity:0.8;
+}
+
 form label {
   margin-top: 10px;
 }

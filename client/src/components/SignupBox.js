@@ -1,5 +1,5 @@
-import "../css/SignupBox.css";
 import Form from "./Form";
+import "../css/SignupBox.css";
 
 const SignupBox = ({ toggle }) => {
   return (
