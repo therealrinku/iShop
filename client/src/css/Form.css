@@ -12,8 +12,12 @@ form button {
   font-family: inherit;
 }
 
-form button:disabled{
-  opacity:0.8;
+form button:disabled {
+  opacity: 0.5;
+}
+
+form button:disabled:hover {
+  cursor: unset;
 }
 
 form label {
