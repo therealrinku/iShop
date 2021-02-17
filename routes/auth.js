@@ -13,7 +13,7 @@ router.post("/login", (req, res) => {
           else res.send("invalid password");
         });
       } else {
-        res.send("invalid username");
+        res.send("invalid email");
       }
     }
   );
