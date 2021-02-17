@@ -60,6 +60,7 @@ const Form = ({ formType, LOGIN }) => {
         setLoading(false);
         if (typeof res.data === "object") {
           LOGIN(res.data);
+          history.push("/profile");
         } else {
           setMessage(res.data);
         }
