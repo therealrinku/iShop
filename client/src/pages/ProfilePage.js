@@ -1,17 +1,23 @@
 import * as userActions from "../redux/user/userActions";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "../css/ProfilePage.css";
 
-const ProfilePage = ({ data, email, LOGOUT }) => {
-  console.log(data);
+const ProfilePage = ({ email, LOGOUT }) => {
+  const history = useHistory();
+  const Logout = () => {
+    LOGOUT();
+    history.push("/");
+  };
+
   return (
     <div className="profile--page">
       <Navbar />
 
       <main>
         <h4>{email}</h4>
-        <button onClick={LOGOUT}>Logout</button>
+        <button onClick={Logout}>Logout</button>
       </main>
     </div>
   );
@@ -19,8 +25,7 @@ const ProfilePage = ({ data, email, LOGOUT }) => {
 
 const mapStateToProps = (state) => {
   return {
-    data: state.user.userData,
-    email: state.user.userData.email,
+    email: state.user.userData.data.email,
   };
 };
 
