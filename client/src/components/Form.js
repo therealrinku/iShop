@@ -30,7 +30,7 @@ const Form = ({ formType }) => {
             if (res.data === "success") {
               setMessage("Account created, Now you can login.");
               setTimeout(() => {
-                history.push("/login");
+                window.location.reload()
               }, 2000);
             } else {
               setMessage(res.data);
