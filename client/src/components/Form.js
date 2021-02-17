@@ -59,7 +59,7 @@ const Form = ({ formType, LOGIN }) => {
       .then((res) => {
         setLoading(false);
         if (typeof res.data === "object") {
-          LOGIN(res.data);
+          LOGIN({ ...res.data });
           history.push("/profile");
         } else {
           setMessage(res.data);

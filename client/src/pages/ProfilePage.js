@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
 import "../css/ProfilePage.css";
 
-const ProfilePage = ({ email, LOGOUT }) => {
+const ProfilePage = ({ data, email, LOGOUT }) => {
+  console.log(data);
   return (
     <div className="profile--page">
       <Navbar />
@@ -18,6 +19,7 @@ const ProfilePage = ({ email, LOGOUT }) => {
 
 const mapStateToProps = (state) => {
   return {
+    data: state.user.userData,
     email: state.user.userData.email,
   };
 };
