@@ -2,9 +2,11 @@ import { useState } from "react";
 import server_url from "../server_url";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import * as userActions from "../redux/user/userActions";
+import { connect } from "react-redux";
 import "../css/Form.css";
 
-const Form = ({ formType }) => {
+const Form = ({ formType, LOGIN }) => {
   const history = useHistory();
 
   const [email, setEmail] = useState("");
@@ -30,7 +32,7 @@ const Form = ({ formType }) => {
             if (res.data === "success") {
               setMessage("Account created, Now you can login.");
               setTimeout(() => {
-                window.location.reload()
+                window.location.reload();
               }, 2000);
             } else {
               setMessage(res.data);
@@ -44,7 +46,19 @@ const Form = ({ formType }) => {
     }
   };
 
-  const Login = () => {};
+  const Login = (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+    axios.post(server_url + "/login", { email, password }).then((res) => {
+      setLoading(false);
+      if (typeof res.data === "object") {
+        LOGIN(res.data);
+      } else {
+        setMessage(res.data);
+      }
+    });
+  };
 
   return (
     <form onSubmit={formType === "Signup" ? Signup : Login}>
@@ -74,4 +88,10 @@ const Form = ({ formType }) => {
   );
 };
 
-export default Form;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    LOGIN: (data) => dispatch(userActions.LOGIN(data)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Form);
