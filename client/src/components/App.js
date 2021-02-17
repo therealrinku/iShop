@@ -4,6 +4,7 @@ import ExplorePage from "../pages/ExplorePage";
 import Homepage from "../pages/Homepage";
 import ItemDetailsPage from "../pages/ItemDetailsPage";
 import LoginPage from "../pages/LoginPage";
+import ProfilePage from "../pages/ProfilePage";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Route path="/product/:productId" exact component={ItemDetailsPage} />
       <Route path="/bag" exact component={BagPage} />
       <Route path="/login" exact component={LoginPage} />
+      <Route path="/profile" exact component={ProfilePage} />
     </BrowserRouter>
   );
 };
