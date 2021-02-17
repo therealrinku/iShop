@@ -37,6 +37,10 @@ const Form = ({ formType, LOGIN }) => {
             } else {
               setMessage(res.data);
             }
+          })
+          .catch((err) => {
+            setLoading(false);
+            setMessage(err.message);
           });
       } else {
         setMessage("Password must be 5 to 50 characters long.");
@@ -50,14 +54,20 @@ const Form = ({ formType, LOGIN }) => {
     e.preventDefault();
 
     setLoading(true);
-    axios.post(server_url + "/login", { email, password }).then((res) => {
-      setLoading(false);
-      if (typeof res.data === "object") {
-        LOGIN(res.data);
-      } else {
-        setMessage(res.data);
-      }
-    });
+    axios
+      .post(server_url + "/auth/login", { email, password })
+      .then((res) => {
+        setLoading(false);
+        if (typeof res.data === "object") {
+          LOGIN(res.data);
+        } else {
+          setMessage(res.data);
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        setMessage(err.message);
+      });
   };
 
   return (
