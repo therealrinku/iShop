@@ -19,10 +19,12 @@ const ProfilePage = ({ email, LOGOUT }) => {
       <main>
         <span>
           <FaRegUser />
-          <h4>{email}</h4>
+          <h4>{email ? email : "You are not logged in."}</h4>
         </span>
 
-        <button onClick={Logout}>Logout</button>
+        <button onClick={email ? Logout : () => history.push("/login")}>
+          {email ? "Logout" : "Login"}
+        </button>
       </main>
     </div>
   );
