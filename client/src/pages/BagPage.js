@@ -13,7 +13,9 @@ const BagPage = ({ cartItems }) => {
       <Navbar />
 
       <main>
-        <h4>My Bag</h4>
+        <h4 style={cartItems.length < 1 ? { display: "none" } : null}>
+          My Bag
+        </h4>
 
         {cartItems.length >= 1 ? (
           <section className="cart-items">
