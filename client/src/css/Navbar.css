@@ -39,6 +39,6 @@
   background: rgba(0, 0, 0, 0.04);
 }
 
-.nav--bar .active-link {
+.nav--bar section:last-child .active-link {
   background: rgba(0, 0, 0, 0.04);
 }
