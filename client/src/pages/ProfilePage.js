@@ -30,7 +30,7 @@ const ProfilePage = ({ email, LOGOUT }) => {
 
 const mapStateToProps = (state) => {
   return {
-    email: state.user.userData.data.email,
+    email: state.user.userData?.data.email,
   };
 };
 
