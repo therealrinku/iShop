@@ -2,6 +2,7 @@ import * as userActions from "../redux/user/userActions";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { FaRegUser } from "react-icons/all";
 import "../css/ProfilePage.css";
 
 const ProfilePage = ({ email, LOGOUT }) => {
@@ -16,7 +17,11 @@ const ProfilePage = ({ email, LOGOUT }) => {
       <Navbar />
 
       <main>
-        <h4>{email}</h4>
+        <span>
+          <FaRegUser />
+          <h4>{email}</h4>
+        </span>
+
         <button onClick={Logout}>Logout</button>
       </main>
     </div>
