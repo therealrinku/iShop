@@ -44,7 +44,7 @@ const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
   return (
     <div className="item--details--page">
       <Navbar />
-      <main style={loading ? { display: "none" } : null}>
+      <main style={loading || product.length===0? { display: "none" } : null}>
         <section>
           <button className="back-btn" onClick={() => history.goBack()}>
             Get Back to Shopping
@@ -82,7 +82,7 @@ const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
         </section>
       </main>
 
-      {loading ? (
+      {loading || product.length===0? (
         <div
           style={{
             display: "flex",
@@ -92,7 +92,7 @@ const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
             height: "80vh",
           }}
         >
-          <Loader />
+         {loading? <Loader /> : <p>Product not found.</p>}
         </div>
       ) : null}
     </div>
