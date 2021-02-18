@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
 import { useParams, useHistory } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 import * as cartActions from "../redux/cart/cartActions";
 import axios from "axios";
+import Loader from "../components/Loader";
 import server_url from "../server_url";
 import "../css/ItemDetailsPage.css";
-import Loader from "../components/Loader";
 
 const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
   const params = useParams();
@@ -44,7 +44,9 @@ const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
   return (
     <div className="item--details--page">
       <Navbar />
-      <main style={loading || product.length===0? { display: "none" } : null}>
+      <main
+        style={loading || product.length === 0 ? { display: "none" } : null}
+      >
         <section>
           <button className="back-btn" onClick={() => history.goBack()}>
             Get Back to Shopping
@@ -82,7 +84,7 @@ const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
         </section>
       </main>
 
-      {loading || product.length===0? (
+      {loading || product.length === 0 ? (
         <div
           style={{
             display: "flex",
@@ -92,7 +94,19 @@ const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
             height: "80vh",
           }}
         >
-         {loading? <Loader /> : <p>Product not found.</p>}
+          {loading ? (
+            <Loader />
+          ) : (
+            <Fragment>
+              <p>Product not found.</p>
+              <button
+                className="back-btn1"
+                onClick={() => history.push("/explore")}
+              >
+                Back to shopping
+              </button>
+            </Fragment>
+          )}
         </div>
       ) : null}
     </div>

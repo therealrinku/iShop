@@ -21,6 +21,19 @@
   padding: 11px;
 }
 
+.item--details--page .back-btn1 {
+  background: black;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 10px 20px;
+  font-family: inherit;
+}
+
+.item--details--page .back-btn1:hover {
+  opacity: 0.8;
+}
+
 .item--details--page main section div button:disabled {
   opacity: 0.7;
 }
