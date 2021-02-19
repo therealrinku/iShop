@@ -11,7 +11,7 @@ const userReducer = (state = initialState, action) => {
     case userActionTypes.LOADING:
       return {
         ...state,
-        loading: false,
+        loading: true,
       };
 
     case userActionTypes.SOMETHING_WENT_SHIT:
