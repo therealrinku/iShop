@@ -3,7 +3,7 @@ import server_url from "../server_url";
 
 const loginWithToken = async (token) => {
   const data = axios
-    .get(server_url + "/auth/getUserData")
+    .get(server_url + `/auth/getUserData/${token}`)
     .then((res) => {
       return { ...res.data };
     })
