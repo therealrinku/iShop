@@ -5,7 +5,7 @@ const loginWithToken = async (token) => {
   const data = axios
     .get(server_url + `/auth/getUserData/${token}`)
     .then((res) => {
-      return { ...res.data };
+      return { ...(res.data[0] || []) };
     })
     .catch((err) => {
       throw new Error(err.message);
