@@ -9,6 +9,7 @@ const ProfilePage = ({ email, LOGOUT }) => {
   const history = useHistory();
   const Logout = () => {
     LOGOUT();
+    localStorage.removeItem("login_token");
     history.push("/");
   };
 
