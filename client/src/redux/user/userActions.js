@@ -7,7 +7,7 @@ export const LOGIN = (data) => (dispatch) => {
 
 export const LOGIN_WITH_TOKEN = (token) => async (dispatch) => {
   try {
-    dispatch({ type: userActionTypes.LOADING });
+    dispatch({ type: userActionTypes.LOGGING_IN });
     const data = await loginWithToken(token);
     dispatch({ type: userActionTypes.LOGIN, payload: { data } });
   } catch (err) {
