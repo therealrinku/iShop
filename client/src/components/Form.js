@@ -60,6 +60,7 @@ const Form = ({ formType, LOGIN }) => {
         setLoading(false);
         if (typeof res.data === "object") {
           LOGIN({ ...res.data });
+          localStorage.setItem("login_token", res.data.login_token);
           history.push("/profile");
         } else {
           setMessage(res.data);
