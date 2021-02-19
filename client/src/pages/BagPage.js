@@ -3,10 +3,18 @@ import CartItem from "../components/CartItem";
 import Navbar from "../components/Navbar";
 import { BsArrowRight } from "react-icons/all";
 import { useHistory } from "react-router-dom";
+import * as cartActions from "../redux/cart/cartActions";
+import { useEffect } from "react";
 import "../css/BagPage.css";
 
-const BagPage = ({ cartItems }) => {
+const BagPage = ({ cartItems, email, LOAD_CART }) => {
   const history = useHistory();
+
+  useEffect(() => {
+    if (email) {
+      LOAD_CART(email);
+    }
+  }, []);
 
   return (
     <div className="bag--page">
@@ -62,8 +70,15 @@ const BagPage = ({ cartItems }) => {
 
 const mapStateToProps = (state) => {
   return {
+    email: state.user.userData?.data.email,
     cartItems: state.cart.cartItems,
   };
 };
 
-export default connect(mapStateToProps)(BagPage);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    LOAD_CART: (email) => dispatch(cartActions.LOAD_CART(email)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BagPage);
