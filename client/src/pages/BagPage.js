@@ -6,12 +6,13 @@ import { useHistory } from "react-router-dom";
 import * as cartActions from "../redux/cart/cartActions";
 import { useEffect } from "react";
 import "../css/BagPage.css";
+import Loader from "../components/Loader";
 
-const BagPage = ({ cartItems, email, LOAD_CART }) => {
+const BagPage = ({ loading, cartItems, email, LOAD_CART }) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (email) {
+    if (email && cartItems.length === 0) {
       LOAD_CART(email);
     }
   }, []);
@@ -21,11 +22,13 @@ const BagPage = ({ cartItems, email, LOAD_CART }) => {
       <Navbar />
 
       <main>
-        <h4 style={cartItems.length < 1 ? { display: "none" } : null}>
+        <h4
+          style={cartItems.length < 1 || loading ? { display: "none" } : null}
+        >
           My Bag
         </h4>
 
-        {cartItems.length >= 1 ? (
+        {cartItems.length >= 1 && !loading ? (
           <section className="cart-items">
             {cartItems.map((item) => {
               return (
@@ -51,6 +54,18 @@ const BagPage = ({ cartItems, email, LOAD_CART }) => {
               </button>
             </section>
           </section>
+        ) : loading ? (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "75vh",
+            }}
+          >
+            <Loader />
+          </div>
         ) : (
           <section className="back-to-shopping">
             <p>Your Shopping Bag is Empty.</p>
@@ -70,6 +85,7 @@ const BagPage = ({ cartItems, email, LOAD_CART }) => {
 
 const mapStateToProps = (state) => {
   return {
+    loading: state.cart.loading,
     email: state.user.userData?.data.email,
     cartItems: state.cart.cartItems,
   };
