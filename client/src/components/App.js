@@ -8,8 +8,10 @@ import ProfilePage from "../pages/ProfilePage";
 import * as userActions from "../redux/user/userActions";
 import { connect } from "react-redux";
 import { useEffect } from "react";
+import { Fragment } from "react";
+import Loader from "./Loader";
 
-const App = ({ LOGIN_WITH_TOKEN }) => {
+const App = ({ loading, LOGIN_WITH_TOKEN }) => {
   const login_token = localStorage.getItem("login_token");
 
   useEffect(() => {
@@ -19,15 +21,37 @@ const App = ({ LOGIN_WITH_TOKEN }) => {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Route path="/" exact component={Homepage} />
-      <Route path="/explore" exact component={ExplorePage} />
-      <Route path="/product/:productId" exact component={ItemDetailsPage} />
-      <Route path="/bag" exact component={BagPage} />
-      <Route path="/login" exact component={LoginPage} />
-      <Route path="/profile" exact component={ProfilePage} />
-    </BrowserRouter>
+    <Fragment>
+      {!loading ? (
+        <BrowserRouter>
+          <Route path="/" exact component={Homepage} />
+          <Route path="/explore" exact component={ExplorePage} />
+          <Route path="/product/:productId" exact component={ItemDetailsPage} />
+          <Route path="/bag" exact component={BagPage} />
+          <Route path="/login" exact component={LoginPage} />
+          <Route path="/profile" exact component={ProfilePage} />
+        </BrowserRouter>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100vh",
+          }}
+        >
+          <Loader />
+        </div>
+      )}
+    </Fragment>
   );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    loading: state.user.loading,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -36,4 +60,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
