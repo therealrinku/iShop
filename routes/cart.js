@@ -11,7 +11,13 @@ router.get("/getCart/:user_email", (req, res) => {
 });
 
 router.post("/updateCart/:user_email", (req, res) => {
-  //
+  db.query(
+    `UPDATE users SET cart_items='${JSON.stringify(req.body.cart_items)}'`,
+    (err, res1) => {
+      if (!err) res.send("success");
+      else throw err;
+    }
+  );
 });
 
 module.exports = router;
