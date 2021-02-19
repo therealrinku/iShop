@@ -1,4 +1,5 @@
 import userActionTypes from "./userActionTypes";
+import loginWithToken from "../../functions/loginWithToken";
 
 export const LOGIN = (data) => (dispatch) => {
   dispatch({ type: userActionTypes.LOGIN, payload: { data } });
@@ -15,7 +16,7 @@ export const LOGIN_WITH_TOKEN = (token) => async (dispatch) => {
       payload: err.message,
     });
   }
-  dispatch({ type: userActionTypes.LOGIN_WITH_TOKEN });
+  dispatch({ type: userActionTypes.SOMETHING_WENT_SHIT });
 };
 
 export const LOGOUT = () => (dispatch) => {
