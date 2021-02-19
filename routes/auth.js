@@ -2,9 +2,9 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const db = require("../db");
 
-router.get("/getUserData", (req, res) => {
+router.get("/getUserData/:token", (req, res) => {
   db.query(
-    `SELECT email,is_admin FROM users WHERE (login_token)::text='${req.body.token}'`,
+    `SELECT email,is_admin FROM users WHERE (login_token)::text='${req.params.token}'`,
     (err, res1) => {
       if (err) throw err;
       else res.send(res1.rows);
