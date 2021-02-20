@@ -5,8 +5,8 @@ import { BsArrowRight } from "react-icons/all";
 import { useHistory } from "react-router-dom";
 import * as cartActions from "../redux/cart/cartActions";
 import { useEffect } from "react";
-import "../css/BagPage.css";
 import Loader from "../components/Loader";
+import "../css/BagPage.css";
 
 const BagPage = ({ loading, cartItems, email, LOAD_CART }) => {
   const history = useHistory();
