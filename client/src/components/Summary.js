@@ -1,11 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, Fragment } from "react";
 import Item from "./Item";
 import { useHistory } from "react-router-dom";
 import * as productsActions from "../redux/products/productsActions";
 import { connect } from "react-redux";
-import "../css/Summary.css";
-import { Fragment } from "react";
 import Loader from "./Loader";
+import "../css/Summary.css";
 
 const Summary = ({
   latestProducts,
@@ -18,61 +17,65 @@ const Summary = ({
   const history = useHistory();
 
   useEffect(() => {
-    if (latestProducts.length === 0) {
+    if (latestProducts.length === 0 && !error) {
       LOAD_LATEST_PRODUCTS();
     }
-    if (hottestProducts.length === 0) {
+    if (hottestProducts.length === 0 && !error) {
       LOAD_HOTTEST_PRODUCTS();
     }
   }, []);
 
   return (
-    <div className="summary">
-      <h4>Hottest Products</h4>
-      <section style={loading ? { display: "none" } : null}>
-        {hottestProducts.map((product, i) => {
-          return (
-            <Item
-              key={i}
-              productId={product.product_id}
-              productImageURL={product.product_image_url}
-              productName={product.product_name}
-              productPrice={product.product_price}
-            />
-          );
-        })}
-      </section>
+    <Fragment>
+      <div className="summary">
+        <h4>Hottest Products</h4>
+        <section style={loading ? { display: "none" } : null}>
+          {hottestProducts.map((product, i) => {
+            return (
+              <Item
+                key={i}
+                productId={product.product_id}
+                productImageURL={product.product_image_url}
+                productName={product.product_name}
+                productPrice={product.product_price}
+              />
+            );
+          })}
+        </section>
 
-      {loading ? (
-        <Fragment>
-          <Loader />
-        </Fragment>
-      ) : null}
+        {loading ? (
+          <Fragment>
+            <Loader />
+          </Fragment>
+        ) : null}
 
-      <h4
-        style={{ marginTop: "50px" }}
-        style={
-          loading || latestProducts.length === 0 ? { display: "none" } : null
-        }
-      >
-        Latest Products
-      </h4>
-      <section style={loading ? { display: "none" } : null}>
-        {latestProducts.map((product, i) => {
-          return (
-            <Item
-              key={i}
-              productId={product.product_id}
-              productImageURL={product.product_image_url}
-              productName={product.product_name}
-              productPrice={product.product_price}
-            />
-          );
-        })}
-      </section>
+        <h4
+          style={{ marginTop: "50px" }}
+          style={
+            loading || latestProducts.length === 0 ? { display: "none" } : null
+          }
+        >
+          Latest Products
+        </h4>
+        <section style={loading ? { display: "none" } : null}>
+          {latestProducts.map((product, i) => {
+            return (
+              <Item
+                key={i}
+                productId={product.product_id}
+                productImageURL={product.product_image_url}
+                productName={product.product_name}
+                productPrice={product.product_price}
+              />
+            );
+          })}
+        </section>
 
-      <button onClick={() => history.push("/explore")}>See All Products</button>
-    </div>
+        <button onClick={() => history.push("/explore")}>
+          See All Products
+        </button>
+      </div>
+    </Fragment>
   );
 };
 

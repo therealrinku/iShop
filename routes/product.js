@@ -7,35 +7,41 @@ router.get("/searchProduct/:query", (req, res) => {
       .trim()
       .toLowerCase()}%'`,
     (err, res1) => {
-      res.send(res1.rows);
+      if (!err) res.send(res1.rows);
+      else throw err;
     }
   );
 });
 
 router.get("/fetchProduct/:product_id", (req, res) => {
+  console.log("re1");
   db.query(
     `SELECT * FROM products WHERE (product_id)::text='${req.params.product_id}'`,
     (err, res1) => {
-      res.send(res1.rows);
+      if (!err) res.send(res1.rows);
+      else throw err;
     }
   );
 });
 
 router.get("/fetchLatest", (req, res) => {
   db.query(`SELECT * FROM products WHERE is_latest='${true}'`, (err, res1) => {
-    res.send(res1.rows);
+    if (!err) res.send(res1.rows);
+    else throw err;
   });
 });
 
 router.get("/fetchHottest", (req, res) => {
   db.query(`SELECT * FROM products WHERE is_hot='${true}'`, (err, res1) => {
-    res.send(res1.rows);
+    if (!err) res.send(res1.rows);
+    else throw err;
   });
 });
 
 router.get("/fetchAll", (req, res) => {
   db.query(`SELECT * FROM products`, (err, res1) => {
-    res.send(res1.rows);
+    if (!err) res.send(res1.rows);
+    else throw err;
   });
 });
 

@@ -1,0 +1,22 @@
+.error--viewer {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+}
+
+.error--viewer .reload-btn {
+  border: none;
+  outline: none;
+  background: inherit;
+  color: white;
+  text-decoration: underline;
+  font-family: inherit;
+  font-size: 16px;
+}

@@ -23,8 +23,8 @@ const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
         setProduct(res.data);
       })
       .catch((err) => {
-        setLoading(false);
         setError(err.message);
+        setLoading(false);
       });
   }, []);
 
@@ -94,9 +94,9 @@ const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
             height: "80vh",
           }}
         >
-          {loading ? (
+          {loading && !error ? (
             <Loader />
-          ) : (
+          ) : !error ? (
             <Fragment>
               <p>Product not found.</p>
               <button
@@ -106,7 +106,7 @@ const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
                 Back to shopping
               </button>
             </Fragment>
-          )}
+          ) : null}
         </div>
       ) : null}
     </div>

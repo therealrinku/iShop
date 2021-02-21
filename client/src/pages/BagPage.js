@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import Loader from "../components/Loader";
 import "../css/BagPage.css";
 
-const BagPage = ({ loading, cartItems, email, LOAD_CART }) => {
+const BagPage = ({ loading, cartItems, email, LOAD_CART, error }) => {
   const history = useHistory();
 
   useEffect(() => {
@@ -85,6 +85,7 @@ const BagPage = ({ loading, cartItems, email, LOAD_CART }) => {
 
 const mapStateToProps = (state) => {
   return {
+    error: state.cart.error,
     loading: state.cart.loading,
     email: state.user.userData?.data.email,
     cartItems: state.cart.cartItems,

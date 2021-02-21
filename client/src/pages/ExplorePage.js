@@ -10,7 +10,7 @@ const ExplorePage = ({ products, loading, error, LOAD_PRODUCTS }) => {
   const [pageNo, setPageNo] = useState(1);
 
   useEffect(() => {
-    if (products.length < 1) {
+    if (products.length < 1 && !error) {
       LOAD_PRODUCTS();
     }
   }, []);
@@ -18,7 +18,7 @@ const ExplorePage = ({ products, loading, error, LOAD_PRODUCTS }) => {
   return (
     <div className="explore--page">
       <Navbar />
-      <h4>All Products</h4>
+      <h4 style={error ? { display: "none" } : null}>All Products</h4>
 
       <section
         className="products"
