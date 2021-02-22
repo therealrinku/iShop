@@ -40,12 +40,12 @@ const ItemDetailsPage = ({
     0;
 
   const ADD_OR_REMOVE_FROM_BAG = () => {
-    const [
+    const {
       product_image_url,
       product_name,
       product_id,
       product_price,
-    ] = product[0];
+    } = product[0];
 
     if (itemIsInCart) {
       REMOVE_FROM_CART(product.product_id);
