@@ -1,5 +1,6 @@
 import * as cartActions from "../redux/cart/cartActions";
 import { connect } from "react-redux";
+import updateCart from "../functions/updateCart";
 import "../css/CartItem.css";
 
 const CartItem = ({
@@ -12,6 +13,11 @@ const CartItem = ({
   DECREASE_ITEM_QUANTITY,
   REMOVE_FROM_CART,
 }) => {
+  const itemFunction = (functionName, param) => {
+    functionName(param);
+    updateCart(email, cartItems);
+  };
+
   return (
     <div className="cart--item">
       <img src={itemImageURL} alt={`${itemName}`} />
@@ -22,20 +28,20 @@ const CartItem = ({
         <div>
           <button
             disabled={itemQuantity === 1}
-            onClick={() => DECREASE_ITEM_QUANTITY(itemId)}
+            onClick={() => itemFunction(DECREASE_ITEM_QUANTITY, itemId)}
           >
             -
           </button>
           <p>{itemQuantity}</p>
           <button
-            onClick={() => INCREASE_ITEM_QUANTITY(itemId)}
+            onClick={() => itemFunction(INCREASE_ITEM_QUANTITY, itemId)}
             disabled={itemQuantity === 5}
           >
             +
           </button>
           <button
             style={{ marginLeft: "4px" }}
-            onClick={() => REMOVE_FROM_CART(itemId)}
+            onClick={() => itemFunction(REMOVE_FROM_CART, itemId)}
           >
             x
           </button>

@@ -6,9 +6,15 @@ import * as cartActions from "../redux/cart/cartActions";
 import axios from "axios";
 import Loader from "../components/Loader";
 import server_url from "../server_url";
+import updateCart from "../functions/updateCart";
 import "../css/ItemDetailsPage.css";
 
-const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
+const ItemDetailsPage = ({
+  email,
+  cartItems,
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+}) => {
   const params = useParams();
   const history = useHistory();
   const [product, setProduct] = useState([]);
@@ -39,6 +45,8 @@ const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
     } else {
       ADD_TO_CART({ ...product[0], productQuantity: itemQuantity });
     }
+
+    updateCart(email, cartItems);
   };
 
   return (
@@ -115,6 +123,7 @@ const ItemDetailsPage = ({ cartItems, ADD_TO_CART, REMOVE_FROM_CART }) => {
 
 const mapStateToProps = (state) => {
   return {
+    email: state.user.userData?.data.email,
     cartItems: state.cart.cartItems,
   };
 };
