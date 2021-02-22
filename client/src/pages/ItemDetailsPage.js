@@ -42,7 +42,8 @@ const ItemDetailsPage = ({
   const ADD_OR_REMOVE_FROM_BAG = () => {
     const [
       product_image_url,
-      product_name_product_id,
+      product_name,
+      product_id,
       product_price,
     ] = product[0];
 
