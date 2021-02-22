@@ -40,10 +40,22 @@ const ItemDetailsPage = ({
     0;
 
   const ADD_OR_REMOVE_FROM_BAG = () => {
+    const [
+      product_image_url,
+      product_name_product_id,
+      product_price,
+    ] = product[0];
+
     if (itemIsInCart) {
       REMOVE_FROM_CART(product.product_id);
     } else {
-      ADD_TO_CART({ ...product[0], productQuantity: itemQuantity });
+      ADD_TO_CART({
+        product_image_url,
+        product_name,
+        product_id,
+        product_price,
+        productQuantity: itemQuantity,
+      });
     }
 
     updateCart(email, cartItems);
