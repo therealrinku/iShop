@@ -48,7 +48,7 @@ const ItemDetailsPage = ({
     } = product[0];
 
     if (itemIsInCart) {
-      REMOVE_FROM_CART(product.product_id);
+      REMOVE_FROM_CART(product[0]?.product_id);
     } else {
       ADD_TO_CART({
         product_image_url,
