@@ -39,6 +39,8 @@ const BagPage = ({ loading, cartItems, email, LOAD_CART, error }) => {
                   itemName={item.product_name}
                   itemPrice={item.product_price}
                   itemQuantity={item.productQuantity}
+                  email={email}
+                  cartItems={cartItems}
                 />
               );
             })}
