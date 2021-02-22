@@ -4,6 +4,8 @@ import updateCart from "../functions/updateCart";
 import "../css/CartItem.css";
 
 const CartItem = ({
+  email,
+  cartItems,
   itemId,
   itemImageURL,
   itemName,
