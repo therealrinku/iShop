@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { HiOutlineShoppingBag, FiUser, HiOutlineSearch } from "react-icons/all";
+import { HiOutlineShoppingBag, FiUser, HiOutlineSearch,VscKey } from "react-icons/all";
 import { Badge } from "@material-ui/core";
 import { connect } from "react-redux";
 import { useState, Fragment } from "react";
@@ -7,7 +7,7 @@ import SearchBox from "./SearchBox";
 import Backdrop from "./Backdrop";
 import "../css/Navbar.css";
 
-const Navbar = ({ cartItemsLength, user }) => {
+const Navbar = ({ cartItemsLength, user,isAdmin }) => {
   const [showSearchBox, setShowSearchBox] = useState(false);
 
   const toggleOverflow = () => {
@@ -36,6 +36,13 @@ const Navbar = ({ cartItemsLength, user }) => {
           <button onClick={toggleSearchBox}>
             <HiOutlineSearch />
           </button>
+          {isAdmin?<NavLink
+            to="/admin-dashboard"
+            exact
+            activeClassName="active-link"
+          >
+            <VscKey/>
+          </NavLink>:null}
           <NavLink
             to={user ? "/profile" : "/login"}
             exact
@@ -64,6 +71,7 @@ const Navbar = ({ cartItemsLength, user }) => {
 
 const mapStateToProps = (state) => {
   return {
+    isAdmin:state.user.userData?.data.is_admin,
     cartItemsLength: state.cart.cartItems.length,
     user: state.user.userData,
   };
