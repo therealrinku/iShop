@@ -16,7 +16,7 @@ const App = ({ loading, LOGIN_WITH_TOKEN }) => {
 
   useEffect(() => {
     if (login_token) {
-      //LOGIN_WITH_TOKEN(login_token);
+      LOGIN_WITH_TOKEN(login_token);
     }
   }, []);
 

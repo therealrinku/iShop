@@ -49,6 +49,10 @@ const ItemDetailsPage = ({
 
     if (itemIsInCart) {
       REMOVE_FROM_CART(product[0]?.product_id);
+      updateCart(
+        email,
+        cartItems.filter((item) => item.product_id !== product[0]?.product_id)
+      );
     } else {
       ADD_TO_CART({
         product_image_url,
@@ -57,9 +61,17 @@ const ItemDetailsPage = ({
         product_price,
         productQuantity: itemQuantity,
       });
+      updateCart(email, [
+        ...cartItems,
+        {
+          product_image_url,
+          product_name,
+          product_id,
+          product_price,
+          productQuantity: itemQuantity,
+        },
+      ]);
     }
-
-    updateCart(email, cartItems);
   };
 
   return (
