@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import CartItem from "../components/CartItem";
 import Navbar from "../components/Navbar";
 import { BsArrowRight } from "react-icons/all";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Loader from "../components/Loader";
 import { useEffect } from "react";
 import updateCart from "../functions/updateCart";
@@ -29,6 +29,16 @@ const BagPage = ({ loading, cartItems, email, error, cartLoaded }) => {
         >
           My Bag
         </h4>
+        <p
+          style={
+            !email
+              ? { fontSize: "15px", margin: "10px 0", color: "red" }
+              : { display: "none" }
+          }
+        >
+          To save cart, you must <Link to="/login">login</Link>,otherwise cart
+          will be erased.
+        </p>
 
         {cartItems.length >= 1 && !loading ? (
           <section className="cart-items">
