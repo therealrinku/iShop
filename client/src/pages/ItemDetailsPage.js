@@ -14,12 +14,17 @@ const ItemDetailsPage = ({
   cartItems,
   ADD_TO_CART,
   REMOVE_FROM_CART,
+  cartLoaded,
 }) => {
   const params = useParams();
   const history = useHistory();
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (cartLoaded) updateCart(email, cartItems);
+  }, [cartItems]);
 
   useEffect(() => {
     axios
@@ -49,10 +54,6 @@ const ItemDetailsPage = ({
 
     if (itemIsInCart) {
       REMOVE_FROM_CART(product[0]?.product_id);
-      updateCart(
-        email,
-        cartItems.filter((item) => item.product_id !== product[0]?.product_id)
-      );
     } else {
       ADD_TO_CART({
         product_image_url,
@@ -61,16 +62,6 @@ const ItemDetailsPage = ({
         product_price,
         productQuantity: itemQuantity,
       });
-      updateCart(email, [
-        ...cartItems,
-        {
-          product_image_url,
-          product_name,
-          product_id,
-          product_price,
-          productQuantity: itemQuantity,
-        },
-      ]);
     }
   };
 
@@ -148,6 +139,7 @@ const ItemDetailsPage = ({
 
 const mapStateToProps = (state) => {
   return {
+    cartLoaded: state.cart.cartLoaded,
     email: state.user.userData?.data.email,
     cartItems: state.cart.cartItems,
   };

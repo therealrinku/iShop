@@ -4,6 +4,7 @@ const initialState = {
   cartItems: [],
   loading: false,
   error: null,
+  cartLoaded: false,
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -21,6 +22,7 @@ const cartReducer = (state = initialState, action) => {
         cartItems: action.payload,
         loading: false,
         error: null,
+        cartLoaded: true,
       };
 
     case cartActionTypes.ADD_TO_CART:
