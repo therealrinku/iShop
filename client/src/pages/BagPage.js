@@ -4,10 +4,20 @@ import Navbar from "../components/Navbar";
 import { BsArrowRight } from "react-icons/all";
 import { useHistory } from "react-router-dom";
 import Loader from "../components/Loader";
+import { useEffect } from "react";
+import updateCart from "../functions/updateCart";
 import "../css/BagPage.css";
 
-const BagPage = ({ loading, cartItems, email, error }) => {
+const BagPage = ({ loading, cartItems, email, error, cartLoaded }) => {
   const history = useHistory();
+  let isMounted = true;
+
+  useEffect(() => {
+    if (cartLoaded && isMounted) updateCart(email, cartItems);
+    return () => {
+      isMounted = false;
+    };
+  }, [cartItems]);
 
   return (
     <div className="bag--page">
@@ -79,6 +89,7 @@ const BagPage = ({ loading, cartItems, email, error }) => {
 
 const mapStateToProps = (state) => {
   return {
+    cartLoaded: state.cart.cartLoaded,
     error: state.cart.error,
     loading: state.cart.loading,
     email: state.user.userData?.data.email,
