@@ -30,7 +30,10 @@ export const LOAD_CART = (email) => async (dispatch) => {
   try {
     dispatch({ type: cartActionTypes.LOADING_CART });
     const cartItems = await getCartItems(email);
-    dispatch({ type: cartActionTypes.LOAD_CART, payload: cartItems });
+    dispatch({
+      type: cartActionTypes.LOAD_CART,
+      payload: JSON.parse(cartItems),
+    });
   } catch (err) {
     dispatch({
       type: cartActionTypes.SOMETHING_WENT_WRONG,
