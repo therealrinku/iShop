@@ -5,6 +5,7 @@ import Homepage from "../pages/Homepage";
 import ItemDetailsPage from "../pages/ItemDetailsPage";
 import LoginPage from "../pages/LoginPage";
 import ProfilePage from "../pages/ProfilePage";
+import DashboardPage from "../pages/DashboardPage";
 import * as userActions from "../redux/user/userActions";
 import * as cartActions from "../redux/cart/cartActions";
 import { connect } from "react-redux";
@@ -35,6 +36,7 @@ const App = ({ loading, LOGIN_WITH_TOKEN, email, LOAD_CART }) => {
           <Route path="/bag" exact component={BagPage} />
           <Route path="/login" exact component={LoginPage} />
           <Route path="/profile" exact component={ProfilePage} />
+          <Route path="/admin-dashboard" exact component={DashboardPage} />
         </BrowserRouter>
       ) : (
         <div
