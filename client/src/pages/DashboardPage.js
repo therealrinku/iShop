@@ -1,10 +1,15 @@
+import { Fragment } from "react";
 import Navbar from "../components/Navbar";
+import "../css/DashboardPage.css";
 
 const Dashboard = () => {
   return (
-    <div>
+    <Fragment>
       <Navbar />
-    </div>
+      <section className="dashboard--page">
+        <p>Dashboard</p>
+      </section>
+    </Fragment>
   );
 };
 
