@@ -1,4 +1,4 @@
-## Instagram clone app.
+## shopping app.
 
 ### Live Website
 * https://ishoopp.web.app
