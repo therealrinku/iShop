@@ -14,4 +14,3 @@
 * User Authentication
 * Auto Login
 * Pagination
-* Shop like a lavish
