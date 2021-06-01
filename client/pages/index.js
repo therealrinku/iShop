@@ -42,7 +42,7 @@ export default function LandingPage({ hottestProducts }) {
               />
             );
           })}
-          <button onClick={() => setSlideIndex((prev) => prev + 1)} disabled={slideIndex === slicedHotItems.length}>
+          <button onClick={() => setSlideIndex((prev) => prev + 1)} disabled={slideIndex === 7}>
             <MdChevronRight />
           </button>
         </article>
