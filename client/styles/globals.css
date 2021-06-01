@@ -10,6 +10,10 @@ a {
   text-decoration: none;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 * {
   box-sizing: border-box;
 }
