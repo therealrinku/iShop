@@ -25,11 +25,6 @@
   display: block;
 }
 
-.heroSection u {
-  font-size: 30px;
-  text-decoration: none;
-}
-
 .heroSection p,
 .heroSection u {
   padding: 0 2vw;
@@ -59,4 +54,17 @@
   .heroSection div:last-child {
     margin-top: 20px;
   }
+}
+
+.hottestSection {
+  width: 85vw;
+  margin: auto;
+  margin-top: 15vh;
+  text-align: center;
+}
+
+.hottestSection article {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 25px;
 }
