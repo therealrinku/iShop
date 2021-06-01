@@ -91,6 +91,14 @@
   cursor: unset;
 }
 
+.hottestSection button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.hottestSection button:disabled:hover {
+  background: black;
+}
+
 .hottestSection button:first-child {
   left: 16.3px;
 }
