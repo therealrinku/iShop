@@ -1,4 +1,4 @@
-## shopping app.
+## mobyoxx is a ecommerce website
 
 ### Live Website
 * https://ishoopp.web.app
