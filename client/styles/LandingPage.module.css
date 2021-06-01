@@ -4,6 +4,7 @@
   justify-content: space-between;
   margin-top: 9vh;
   background: #f7f0ea;
+  height: 70vh;
   box-sizing: border-box;
 }
 
@@ -48,6 +49,7 @@
 @media (max-width: 600px) {
   .heroSection {
     display: block;
+    height: auto;
   }
 
   .heroSection div {
