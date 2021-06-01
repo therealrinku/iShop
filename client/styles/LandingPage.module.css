@@ -45,6 +45,7 @@
   .heroSection {
     display: block;
     height: auto;
+    padding-bottom: 10vh;
   }
 
   .heroSection div {
@@ -65,6 +66,7 @@
 
 .hottestSection article {
   display: flex;
+  justify-content: stretch;
   overflow: hidden;
   margin-top: 25px;
   position: relative;

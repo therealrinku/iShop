@@ -5,8 +5,10 @@ import { MdChevronRight, MdChevronLeft } from "react-icons/md";
 import { useState } from "react";
 
 export default function LandingPage({ hottestProducts }) {
-  const [visibleHottestItems, setVisibleHottestItems] = useState(hottestProducts);
   const [slideIndex, setSlideIndex] = useState(0);
+
+  //sliced hot items
+  const slicedHotItems = hottestProducts.slice(slideIndex);
 
   return (
     <main className={styles.container}>
@@ -29,7 +31,7 @@ export default function LandingPage({ hottestProducts }) {
           <button onClick={() => setSlideIndex((prev) => prev - 1)} disabled={slideIndex === 0}>
             <MdChevronLeft />
           </button>
-          {visibleHottestItems.slice(slideIndex).map((product) => {
+          {slicedHotItems.map((product) => {
             return (
               <Item
                 itemId={product.productId}
@@ -40,7 +42,7 @@ export default function LandingPage({ hottestProducts }) {
               />
             );
           })}
-          <button onClick={() => setSlideIndex((prev) => prev + 1)} disabled={slideIndex === 6}>
+          <button onClick={() => setSlideIndex((prev) => prev + 1)} disabled={slideIndex === slicedHotItems.length}>
             <MdChevronRight />
           </button>
         </article>

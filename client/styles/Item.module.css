@@ -1,8 +1,8 @@
 .item {
-  width: 400px;
+  width: 350px;
   display: flex;
   flex-direction: column;
-  margin-right: 25px;
+  margin: 0 12px;
 }
 
 .item:hover {
@@ -12,7 +12,7 @@
 .item img {
   display: block;
   width: inherit;
-  height: 400px;
+  height: 350px;
   object-fit: cover;
 }
 
@@ -26,4 +26,10 @@
   margin-top: -5px;
   font-size: 12px;
   color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 500px) {
+  .item {
+    width: 85vw;
+  }
 }
