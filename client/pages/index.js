@@ -1,7 +1,10 @@
-import Head from "next/head";
-import Image from "next/image";
+import Meta from "../components/Meta";
 import styles from "../styles/LandingPage.module.css";
 
 export default function LandingPage() {
-  return <div className={styles.container}></div>;
+  return (
+    <div className={styles.container}>
+      <Meta />
+    </div>
+  );
 }
