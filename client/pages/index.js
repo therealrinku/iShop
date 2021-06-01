@@ -12,7 +12,7 @@ export default function LandingPage({ hottestProducts }) {
 
         <div>
           <u>ONE LOCATION ALL SOLUTION</u>
-          <p>Get all the latest and hottest smartphones in one place, mobyoxx.</p>
+          <p>Get all the latest and hottest smartphones in one place, phonyoxx.</p>
           <button>Shop Now</button>
         </div>
       </section>
