@@ -40,8 +40,12 @@ export default function LandingPage({ hottestProducts }) {
 LandingPage.defaultProps = {
   hottestProducts: [
     { productName: "Iphone 12", productImageURL: "https://bit.ly/3wF70WS", productId: 1, price: 1299 },
-    { productName: "Samsung Galaxy S9", productImageURL: "https://bit.ly/3wF70WS", productId: 2, price: 999 },
-    { productName: "Iphone X", productImageURL: "https://bit.ly/3wF70WS", productId: 3, price: 799 },
-    { productName: "Pixel 2", productImageURL: "https://bit.ly/3wF70WS", productId: 4, price: 899 },
+    { productName: "Samsung Galaxy S9", productImageURL: "https://bit.ly/34zeVc3", productId: 2, price: 999 },
+    { productName: "Iphone X", productImageURL: "https://bit.ly/3vI7jQu", productId: 3, price: 799 },
+    { productName: "Pixel 2", productImageURL: "https://bit.ly/34zs6dl", productId: 4, price: 899 },
+    { productName: "Huawei Mate 20 Lite", productImageURL: "https://bit.ly/3uDiNmX", productId: 5, price: 1199 },
+    { productName: "ZenPhone 3", productImageURL: "https://bit.ly/3g4OUad", productId: 6, price: 499 },
+    { productName: "Sony Ericsson XC12", productImageURL: "https://bit.ly/3g6daJ4", productId: 7, price: 399 },
+    { productName: "Vivo V5", productImageURL: "https://bit.ly/3p9Q7AV", productId: 8, price: 299 },
   ],
 };

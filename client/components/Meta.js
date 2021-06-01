@@ -13,6 +13,6 @@ export default function Meta({ title, description }) {
 }
 
 Meta.defaultProps = {
-  title: "mobyoxx",
+  title: "phonyoxx",
   description: "shop without hesitation",
 };

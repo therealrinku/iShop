@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div>
-        <Link href="/">mobyoxx</Link>
+        <Link href="/">phonyoxx</Link>
 
         <ul>
           <Link href="/explore">Explore</Link>
