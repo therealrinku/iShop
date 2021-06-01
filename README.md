@@ -1,7 +1,7 @@
-## mobyoxx is a ecommerce website
+## phonyoxx is a ecommerce website
 
 ### Live Website
-* https://ishoopp.web.app
+* https://phonyoxx.firebaseapp.com
 
 ### Used Technologies
 * React and Redux
