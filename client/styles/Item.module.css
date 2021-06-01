@@ -1,7 +1,8 @@
 .item {
-  width: 230px;
+  width: 400px;
   display: flex;
   flex-direction: column;
+  margin-right: 25px;
 }
 
 .item:hover {
@@ -11,7 +12,7 @@
 .item img {
   display: block;
   width: inherit;
-  height: 280px;
+  height: 400px;
   object-fit: cover;
 }
 

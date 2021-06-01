@@ -64,7 +64,35 @@
 }
 
 .hottestSection article {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  overflow: hidden;
   margin-top: 25px;
+  position: relative;
+}
+
+.hottestSection button {
+  position: absolute;
+  top: 40%;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background: black;
+  color: white;
+  border: none;
+}
+
+.hottestSection button:disabled {
+  opacity: 0.2;
+  cursor: unset;
+}
+
+.hottestSection button:first-child {
+  left: 5px;
+}
+
+.hottestSection button:last-child {
+  right: 5px;
 }
