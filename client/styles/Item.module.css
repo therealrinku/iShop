@@ -27,9 +27,3 @@
   font-size: 12px;
   color: rgba(0, 0, 0, 0.7);
 }
-
-@media (max-width: 500px) {
-  .item {
-    width: 85vw;
-  }
-}

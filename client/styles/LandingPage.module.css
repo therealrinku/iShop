@@ -106,3 +106,9 @@
 .hottestSection button:last-child {
   right: 5px;
 }
+
+@media (max-width: 700px) {
+  .hottestSection div {
+    width: 85vw;
+  }
+}
