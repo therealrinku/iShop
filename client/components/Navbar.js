@@ -18,9 +18,10 @@ export default function Navbar() {
     { linkTitle: "Search", linkTarget: "/search" },
     { linkTitle: "Account", linkTarget: "/account" },
     { linkTitle: "Cart", linkTarget: "/cart" },
-    { linkTitle: "Apple Phones", linkTarget: "/apple" },
-    { linkTitle: "Samsung Phones", linkTarget: "/samsung" },
-    { linkTitle: "Pixel Phones", linkTarget: "/pixel" },
+    { linkTitle: "Apple Phones", linkTarget: "/product/apple" },
+    { linkTitle: "Samsung Phones", linkTarget: "/product/samsung" },
+    { linkTitle: "Pixel Phones", linkTarget: "/product/pixel" },
+    { linkTitle: "Other Phones", linkTarget: "/product/other" },
   ];
 
   return (
@@ -37,7 +38,7 @@ export default function Navbar() {
               </button>
 
               <section className={styles.dropdown} style={showMobileNav ? { display: "none" } : null}>
-                {linkList.slice(-3).map((link) => {
+                {linkList.slice(-4).map((link) => {
                   return (
                     <Link key={link.linkTitle} href={link.linkTarget}>
                       {link.linkTitle}
