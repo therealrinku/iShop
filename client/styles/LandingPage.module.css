@@ -1,7 +1,7 @@
 .hottestSection {
   width: 85vw;
   margin: auto;
-  margin-top: 15vh;
+  margin-top: 20vh;
   text-align: center;
 }
 
@@ -55,8 +55,7 @@
 }
 
 .advantageSection {
-  margin-top: 15vh;
-  background: #f7f0ea;
+  margin-top: 20vh;
   padding: 50px;
   text-align: center;
   width: 100%;

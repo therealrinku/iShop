@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+.impressorReverse {
+  margin-top: 20vh;
+}
+
 .impressor div,
 .impressorReverse div {
   height: inherit;
