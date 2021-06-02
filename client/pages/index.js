@@ -6,7 +6,8 @@ import { MdChevronRight, MdChevronLeft } from "react-icons/md";
 import { useState } from "react";
 import { BiDollar } from "react-icons/bi";
 import { RiDropLine } from "react-icons/ri";
-import { AiOutlineCustomerService } from "react-icons/ai";
+import { AiOutlineCustomerService, AiOutlineMinus } from "react-icons/ai";
+import { GrAdd } from "react-icons/gr";
 import axios from "axios";
 import Impressor from "../components/Impressor";
 
@@ -15,6 +16,31 @@ export default function LandingPage({ hottestProducts }) {
 
   //sliced hot items
   const slicedHotItems = hottestProducts.slice(slideIndex);
+
+  const [qna, setQna] = useState([
+    {
+      showAnswer: false,
+      question: "Is shipping completely free on every item?",
+      answer:
+        "Yes it absolutely is, it doesn't matter where you are buying from shipping cost is free ,at least for now but it will defintely stop one day.",
+    },
+    {
+      showAnswer: false,
+      question: "Does every product have 1 year warranty?",
+      answer: "Off course it does, as long as it comes inside warranty rules.",
+    },
+    {
+      showAnswer: false,
+      question: "How long does it take to get delivery?",
+      answer: "Usually it takes between 3-10 days depending on where you are ordering from.",
+    },
+  ]);
+
+  const toggleAnswer = (index) => {
+    const qnaCopy = [...qna];
+    qnaCopy[index].showAnswer = !qna[index].showAnswer;
+    setQna(qnaCopy);
+  };
 
   return (
     <main className={styles.homePage}>
@@ -57,6 +83,25 @@ export default function LandingPage({ hottestProducts }) {
         title="iPhone 12"
         description="Get the latest iPhone at cheaper price than anywhere."
       />
+
+      <section className={styles.questionSection}>
+        <u>SOME COMMON QUESTIONS</u>
+
+        <div>
+          {qna.map((qna, i) => {
+            return (
+              <div key={i}>
+                <button onClick={() => toggleAnswer(i)}>
+                  <p>{qna.question}</p>
+                  {qna.showAnswer ? <AiOutlineMinus /> : <GrAdd />}
+                </button>
+
+                {qna.showAnswer ? <p>{qna.answer}</p> : null}
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
       <section className={styles.advantageSection}>
         <u>WHY CHOOSE US?</u>
