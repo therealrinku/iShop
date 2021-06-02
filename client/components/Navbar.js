@@ -1,6 +1,7 @@
 import styles from "../styles/Navbar.module.css";
 import Link from "next/link";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { BiMenu } from "react-icons/bi";
 
 export default function Navbar() {
   return (
@@ -28,6 +29,10 @@ export default function Navbar() {
           <Link href="/login">Account</Link>
           <Link href="/cart">Cart</Link>
         </ul>
+
+        <button>
+          <BiMenu />
+        </button>
       </div>
     </nav>
   );

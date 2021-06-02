@@ -6,6 +6,7 @@
   left: 0;
   width: 100%;
   z-index: 1;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.08);
 }
 
 .navbar div {
@@ -55,6 +56,7 @@
   min-width: 160px;
   z-index: 1;
   padding: 10px;
+  border-bottom: solid 2px black;
 }
 
 .navbar section a {
@@ -76,4 +78,23 @@
 
 .showDropdown:hover section {
   display: block;
+}
+
+.navbar button:last-child {
+  font-size: 30px;
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .navbar article,
+  .navbar ul:nth-child(2) {
+    display: none;
+  }
+
+  .navbar button:last-child {
+    display: block;
+    margin: 0;
+    padding: 0;
+    margin-top: 2px;
+  }
 }
