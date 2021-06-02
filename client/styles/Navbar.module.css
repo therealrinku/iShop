@@ -1,7 +1,6 @@
 .navbar {
   background: white;
   height: 60px;
-  border-bottom: solid 2px black;
   position: fixed;
   top: 0;
   left: 0;
@@ -21,30 +20,60 @@
 .navbar ul {
   display: flex;
   align-items: center;
+  padding: 0;
 }
 
-.navbar a {
-  font-size: 15px;
-}
-
-.navbar div > a {
+.navbar ul a,
+.navbar button {
+  margin-right: 1.5em;
   text-transform: uppercase;
   font-size: 12px;
-  font-weight: bold;
   letter-spacing: 2px;
 }
 
-.navbar ul a {
-  height: 20px;
-  margin-right: 1.5em;
-}
-
 .navbar button {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
   border: none;
+  outline: none;
   background: inherit;
-  font-size: 25px;
 }
 
-.navbar ul a:hover {
-  border-bottom: solid 2px black;
+.navbar article {
+  position: relative;
+}
+
+.navbar button p {
+  font-size: 12px;
+}
+
+.navbar section {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  z-index: 1;
+  padding: 10px;
+}
+
+.navbar section a {
+  margin: 0;
+  display: block;
+}
+
+.navbar section a:nth-child(2) {
+  margin: 15px 0;
+}
+
+.navbar section a:hover {
+  color: gray;
+}
+
+.navbar ul:last-child a:hover {
+  border-bottom: solid 1px black;
+}
+
+.showDropdown:hover section {
+  display: block;
 }
