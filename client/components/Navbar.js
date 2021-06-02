@@ -14,6 +14,15 @@ export default function Navbar() {
     else document.body.style.overflow = "auto";
   };
 
+  const linkList = [
+    { linkTitle: "Search", linkTarget: "/search" },
+    { linkTitle: "Account", linkTarget: "/account" },
+    { linkTitle: "Cart", linkTarget: "/cart" },
+    { linkTitle: "Apple Phones", linkTarget: "/apple" },
+    { linkTitle: "Samsung Phones", linkTarget: "/samsung" },
+    { linkTitle: "Pixel Phones", linkTarget: "/pixel" },
+  ];
+
   return (
     <>
       <nav className={styles.navbar}>
@@ -28,17 +37,25 @@ export default function Navbar() {
               </button>
 
               <section className={styles.dropdown} style={showMobileNav ? { display: "none" } : null}>
-                <Link href="/apple">Apple Phones</Link>
-                <Link href="/samsung">Samsung Phones</Link>
-                <Link href="/pixel">Pixel Phones</Link>
+                {linkList.slice(-3).map((link) => {
+                  return (
+                    <Link key={link.linkTitle} href={link.linkTarget}>
+                      {link.linkTitle}
+                    </Link>
+                  );
+                })}
               </section>
             </article>
           </ul>
 
           <ul style={showMobileNav ? { display: "none" } : null}>
-            <Link href="/search">Search</Link>
-            <Link href="/login">Account</Link>
-            <Link href="/cart">Cart</Link>
+            {linkList.slice(0, 3).map((link) => {
+              return (
+                <Link key={link.linkTitle} href={link.linkTarget}>
+                  {link.linkTitle}
+                </Link>
+              );
+            })}
           </ul>
 
           <button onClick={toggleMobileNav}>{showMobileNav ? <MdClose /> : <BiMenu />}</button>
@@ -46,12 +63,13 @@ export default function Navbar() {
       </nav>
 
       <nav className={styles.mobileNav} style={!showMobileNav ? { display: "none" } : null}>
-        <Link href="/search">Search</Link>
-        <Link href="/login">Account</Link>
-        <Link href="/cart">Cart</Link>
-        <Link href="/apple">Apple Phones</Link>
-        <Link href="/samsung">Samsung Phones</Link>
-        <Link href="/pixel">Pixel Phones</Link>
+        {linkList.map((link) => {
+          return (
+            <Link key={link.linkTitle} href={link.linkTarget}>
+              {link.linkTitle}
+            </Link>
+          );
+        })}
         <button onClick={toggleMobileNav}>Close</button>
       </nav>
     </>
