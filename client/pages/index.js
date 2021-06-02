@@ -1,5 +1,6 @@
 import styles from "../styles/LandingPage.module.css";
 import HeroImage from "../assets/hero.jpg";
+import HeroImage2 from "../assets/hero2.jpg";
 import Item from "../components/Item";
 import { MdChevronRight, MdChevronLeft } from "react-icons/md";
 import { useState } from "react";
@@ -7,6 +8,7 @@ import { BiDollar } from "react-icons/bi";
 import { RiDropLine } from "react-icons/ri";
 import { AiOutlineCustomerService } from "react-icons/ai";
 import axios from "axios";
+import Impressor from "../components/Impressor";
 
 export default function LandingPage({ hottestProducts }) {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -15,18 +17,14 @@ export default function LandingPage({ hottestProducts }) {
   const slicedHotItems = hottestProducts.slice(slideIndex);
 
   return (
-    <main className={styles.container}>
-      <section className={styles.heroSection}>
-        <div>
-          <img src={HeroImage} alt="new_product_image" />
-        </div>
-
-        <div>
-          <u>ONE LOCATION ALL SOLUTION</u>
-          <p>Get all the latest and hottest smartphones in one place, phonyoxx.</p>
-          <button>Shop Now</button>
-        </div>
-      </section>
+    <main className={styles.homePage}>
+      <Impressor
+        buttonURL="/explore"
+        imagePos="left"
+        imageURL={HeroImage}
+        title="ONE LOCATION ALL SOLUTION"
+        description="Get all the latest and hottest smartphones in one place, phonyoxx."
+      />
 
       <section className={styles.hottestSection}>
         <u>HOT PRODUCTS</u>
@@ -51,6 +49,14 @@ export default function LandingPage({ hottestProducts }) {
           </button>
         </article>
       </section>
+
+      <Impressor
+        buttonURL="/product/iPhone12"
+        imagePos="right"
+        imageURL={HeroImage2}
+        title="iPhone 12"
+        description="Get the latest iPhone at cheaper price than anywhere."
+      />
 
       <section className={styles.advantageSection}>
         <u>WHY CHOOSE US?</u>

@@ -18,10 +18,10 @@ export default function Navbar() {
     { linkTitle: "Search", linkTarget: "/search" },
     { linkTitle: "Account", linkTarget: "/account" },
     { linkTitle: "Cart", linkTarget: "/cart" },
-    { linkTitle: "Apple Phones", linkTarget: "/product/apple" },
-    { linkTitle: "Samsung Phones", linkTarget: "/product/samsung" },
-    { linkTitle: "Pixel Phones", linkTarget: "/product/pixel" },
-    { linkTitle: "Other Phones", linkTarget: "/product/other" },
+    { linkTitle: "Apple Phones", linkTarget: "/products/apple" },
+    { linkTitle: "Samsung Phones", linkTarget: "/products/samsung" },
+    { linkTitle: "Pixel Phones", linkTarget: "/products/pixel" },
+    { linkTitle: "Other Phones", linkTarget: "/products/other" },
   ];
 
   return (
