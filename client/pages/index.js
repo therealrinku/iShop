@@ -3,6 +3,9 @@ import HeroImage from "../assets/hero.jpg";
 import Item from "../components/Item";
 import { MdChevronRight, MdChevronLeft } from "react-icons/md";
 import { useState } from "react";
+import { BiDollar } from "react-icons/bi";
+import { RiDropLine } from "react-icons/ri";
+import { AiOutlineCustomerService } from "react-icons/ai";
 import axios from "axios";
 
 export default function LandingPage({ hottestProducts }) {
@@ -47,6 +50,26 @@ export default function LandingPage({ hottestProducts }) {
             <MdChevronRight />
           </button>
         </article>
+      </section>
+
+      <section className={styles.advantageSection}>
+        <u>WHY CHOOSE US?</u>
+        <div>
+          <section>
+            <BiDollar />
+            <p>Free delivery around the globe</p>
+          </section>
+
+          <section>
+            <RiDropLine />
+            <p>One year warranty on every product</p>
+          </section>
+
+          <section>
+            <AiOutlineCustomerService />
+            <p>24x7 fast customer support</p>
+          </section>
+        </div>
       </section>
     </main>
   );
