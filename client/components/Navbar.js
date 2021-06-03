@@ -29,15 +29,17 @@ export default function Navbar() {
       <nav className={styles.navbar}>
         <div>
           <ul>
-            <Link href="/">phonyoxx</Link>
+            <b>
+              <Link href="/">phonyoxx</Link>
+            </b>
 
-            <article className={styles.showDropdown} style={showMobileNav ? { display: "none" } : null}>
+            <article className={styles.showDropdown}>
               <button>
                 <p>Categories</p>
                 <MdKeyboardArrowDown />
               </button>
 
-              <section className={styles.dropdown} style={showMobileNav ? { display: "none" } : null}>
+              <section className={styles.dropdown}>
                 {linkList.slice(-4).map((link) => {
                   return (
                     <Link key={link.linkTitle} href={link.linkTarget}>
@@ -49,7 +51,7 @@ export default function Navbar() {
             </article>
           </ul>
 
-          <ul style={showMobileNav ? { display: "none" } : null}>
+          <ul>
             {linkList.slice(0, 3).map((link) => {
               return (
                 <Link key={link.linkTitle} href={link.linkTarget}>
