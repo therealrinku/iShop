@@ -3,9 +3,11 @@ import Link from "next/link";
 import { MdKeyboardArrowDown, MdClose } from "react-icons/md";
 import { BiMenu } from "react-icons/bi";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Navbar() {
   const [showMobileNav, setShowMobileNav] = useState(false);
+  const router = useRouter();
 
   const toggleMobileNav = () => {
     setShowMobileNav((prev) => !prev);
@@ -23,6 +25,11 @@ export default function Navbar() {
     { linkTitle: "Pixel Phones", linkTarget: "/products/pixel" },
     { linkTitle: "Other Phones", linkTarget: "/products/other" },
   ];
+
+  const toggleMobileNavAndGoToRoute = (route) => {
+    router.push(route);
+    toggleMobileNav();
+  };
 
   return (
     <>
@@ -68,9 +75,9 @@ export default function Navbar() {
       <nav className={styles.mobileNav} style={!showMobileNav ? { display: "none" } : null}>
         {linkList.map((link) => {
           return (
-            <Link key={link.linkTitle} href={link.linkTarget}>
+            <a key={link.linkTitle} onClick={() => toggleMobileNavAndGoToRoute(link.linkTarget)}>
               {link.linkTitle}
-            </Link>
+            </a>
           );
         })}
         <button onClick={toggleMobileNav}>Close</button>
