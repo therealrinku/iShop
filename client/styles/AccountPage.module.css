@@ -1,0 +1,57 @@
+.accountPage {
+  text-align: center;
+  margin-top: 15vh;
+}
+
+.accountPage form {
+  width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.accountPage input,
+.accountPage button {
+  border: solid 1px black;
+  outline: none;
+  background: inherit;
+  padding: 10px;
+}
+
+.accountPage button {
+  background: black;
+  color: white;
+  margin-top: 25px;
+}
+
+.accountPage button:hover {
+  opacity: 0.8;
+}
+
+.accountPage button:last-child {
+  background: none;
+  color: black;
+  border: none;
+  margin-top: 10px;
+}
+
+.accountPage button:last-child:hover {
+  text-decoration: underline;
+}
+
+.accountPage label {
+  text-align: left;
+  margin: 10px 0;
+  font-size: 15px;
+  color: gray;
+}
+
+.accountPage input:focus {
+  border-color: gray;
+}
+
+@media (max-width: 450px) {
+  .accountPage form {
+    width: 95vw;
+  }
+}
