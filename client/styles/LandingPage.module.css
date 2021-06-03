@@ -161,9 +161,10 @@
 }
 
 .questionSection div div p:last-child {
-  font-size: 15px;
+  font-size: 14px;
   text-align: left;
   margin-top: 2px;
+  padding-left: 7px;
 }
 
 .questionSection button {
