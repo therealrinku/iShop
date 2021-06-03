@@ -107,7 +107,7 @@
   right: 5px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .hottestSection div {
     display: none;
   }
@@ -142,13 +142,14 @@
 
 .advantageSection section {
   font-size: 30px;
+  margin: 0 20px;
 }
 
 .advantageSection section p {
   font-size: 15px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .advantageSection div {
     flex-direction: column;
   }
@@ -195,7 +196,7 @@
   width: 100%;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .questionSection div div {
     width: 92vw;
   }
