@@ -45,7 +45,6 @@
   .heroSection {
     flex-direction: column;
     height: auto;
-    padding-bottom: 10vh;
   }
 
   .heroSection div {
@@ -53,7 +52,7 @@
   }
 
   .heroSection div:last-child {
-    margin-top: 20px;
+    margin: 25px 0;
   }
 }
 
@@ -109,7 +108,7 @@
 
 @media (max-width: 700px) {
   .hottestSection div {
-    width: 90vw;
+    width: 95vw;
   }
 }
 
@@ -153,12 +152,7 @@
   align-items: center;
 }
 
-.questionSection div {
-  margin-top: 25px;
-}
-
 .questionSection div div {
-  font-size: 18px;
   background: whitesmoke;
   width: 85vw;
   margin: auto;
@@ -179,7 +173,8 @@
   background: inherit;
   outline: none;
   border: none;
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: 400;
   width: 100%;
 }
 
