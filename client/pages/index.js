@@ -9,10 +9,12 @@ import { RiDropLine } from "react-icons/ri";
 import { AiOutlineCustomerService, AiOutlineMinus } from "react-icons/ai";
 import { GrAdd } from "react-icons/gr";
 import axios from "axios";
-import Impressor from "../components/Impressor";
+import { useRouter } from "next/router";
 
 export default function LandingPage({ hottestProducts }) {
   const [slideIndex, setSlideIndex] = useState(0);
+
+  const router = useRouter();
 
   //sliced hot items
   const slicedHotItems = hottestProducts.slice(slideIndex);
@@ -44,13 +46,17 @@ export default function LandingPage({ hottestProducts }) {
 
   return (
     <main className={styles.homePage}>
-      <Impressor
-        buttonURL="/explore"
-        imagePos="left"
-        imageURL={HeroImage}
-        title="ONE LOCATION ALL SOLUTION"
-        description="Get all the latest and hottest smartphones in one place, phonyoxx."
-      />
+      <section className={styles.heroSection}>
+        <div>
+          <img src={HeroImage} alt="product_image" />
+        </div>
+
+        <div>
+          <u>ONE LOCATION ALL SOLUTION</u>
+          <p>Get all the latest and hottest smartphones in one place, phonyoxx.</p>
+          <button onClick={() => router.push("/explore")}>Shop Now</button>
+        </div>
+      </section>
 
       <section className={styles.hottestSection}>
         <u>HOT PRODUCTS</u>
@@ -76,33 +82,6 @@ export default function LandingPage({ hottestProducts }) {
         </article>
       </section>
 
-      <Impressor
-        buttonURL="/product/iPhone12"
-        imagePos="right"
-        imageURL={HeroImage2}
-        title="iPhone 12"
-        description="Get the latest iPhone at cheaper price than anywhere."
-      />
-
-      <section className={styles.questionSection}>
-        <u>SOME COMMON QUESTIONS</u>
-
-        <div>
-          {qna.map((qna, i) => {
-            return (
-              <div key={i}>
-                <button onClick={() => toggleAnswer(i)}>
-                  <p>{qna.question}</p>
-                  {qna.showAnswer ? <AiOutlineMinus /> : <GrAdd />}
-                </button>
-
-                {qna.showAnswer ? <p>{qna.answer}</p> : null}
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
       <section className={styles.advantageSection}>
         <u>WHY CHOOSE US?</u>
         <div>
@@ -120,6 +99,25 @@ export default function LandingPage({ hottestProducts }) {
             <AiOutlineCustomerService />
             <p>24x7 fast customer support</p>
           </section>
+        </div>
+      </section>
+
+      <section className={styles.questionSection}>
+        <u>SOME COMMON QUESTIONS</u>
+
+        <div>
+          {qna.map((qna, i) => {
+            return (
+              <div key={i}>
+                <button onClick={() => toggleAnswer(i)}>
+                  <p>{qna.question}</p>
+                  {qna.showAnswer ? <AiOutlineMinus /> : <GrAdd />}
+                </button>
+
+                {qna.showAnswer ? <p>{qna.answer}</p> : null}
+              </div>
+            );
+          })}
         </div>
       </section>
     </main>

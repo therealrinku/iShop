@@ -1,3 +1,62 @@
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 9vh;
+  background: #f7f0ea;
+  height: 80vh;
+  box-sizing: border-box;
+}
+
+.heroSection div {
+  height: inherit;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heroSection img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.heroSection p,
+.heroSection u {
+  padding: 0 2vw;
+}
+
+.heroSection button {
+  background: black;
+  color: white;
+  padding: 15px 50px;
+  border: none;
+}
+
+.heroSection button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 800px) {
+  .heroSection {
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 10vh;
+  }
+
+  .heroSection div {
+    width: 100%;
+  }
+
+  .heroSection div:last-child {
+    margin-top: 20px;
+  }
+}
+
 .hottestSection {
   width: 85vw;
   margin: auto;
