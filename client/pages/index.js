@@ -1,7 +1,5 @@
 import styles from "../styles/LandingPage.module.css";
 import HeroImage from "../assets/hero.jpg";
-import HeroImage2 from "../assets/hero2.jpg";
-import Item from "../components/Item";
 import { MdChevronRight, MdChevronLeft } from "react-icons/md";
 import { useState } from "react";
 import { BiDollar } from "react-icons/bi";
@@ -73,13 +71,11 @@ export default function LandingPage({ hottestProducts }) {
           </button>
           {slicedHotItems.map((product) => {
             return (
-              <Item
-                itemId={product.product_id}
-                itemName={product.product_name}
-                itemPrice={product.product_price}
-                itemImageURL={product.product_image_url}
-                key={product.product_id}
-              />
+              <div>
+                <img src={product.product_image_url} alt="item_image" />
+                <p>{product.product_name}</p>
+                <p>${product.product_price}</p>
+              </div>
             );
           })}
           <button onClick={() => setSlideIndex((prev) => prev + 1)} disabled={slideIndex === 7}>

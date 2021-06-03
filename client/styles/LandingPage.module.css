@@ -69,6 +69,38 @@
   overflow: hidden;
   margin-top: 25px;
   position: relative;
+  width: 100%;
+}
+
+.hottestSection div {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 12px 0 0;
+}
+
+.hottestSection div:hover {
+  cursor: pointer;
+}
+
+.hottestSection div img {
+  display: block;
+  max-width: 400px;
+  width: 400px;
+  height: 350px;
+  object-fit: cover;
+}
+
+.hottestSection div p {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+
+.hottestSection div p:last-child {
+  margin-top: -5px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .hottestSection button {
@@ -99,7 +131,7 @@
 }
 
 .hottestSection button:first-child {
-  left: 16.3px;
+  left: 5px;
 }
 
 .hottestSection button:last-child {
