@@ -72,37 +72,6 @@
   width: 100%;
 }
 
-.hottestSection div {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 12px 0 0;
-}
-
-.hottestSection div:hover {
-  cursor: pointer;
-}
-
-.hottestSection div img {
-  display: block;
-  max-width: 400px;
-  width: 400px;
-  height: 350px;
-  object-fit: cover;
-}
-
-.hottestSection div p {
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 1.5px;
-}
-
-.hottestSection div p:last-child {
-  margin-top: -5px;
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.7);
-}
-
 .hottestSection button {
   position: absolute;
   top: 40%;
@@ -140,7 +109,18 @@
 
 @media (max-width: 700px) {
   .hottestSection div {
-    width: 95vw;
+    display: none;
+  }
+
+  .hottestSection div:nth-child(2) {
+    display: flex;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .hottestSection div:nth-child(2) img {
+    max-width: 100%;
+    height: 400px;
   }
 }
 
@@ -171,6 +151,10 @@
 @media (max-width: 700px) {
   .advantageSection div {
     flex-direction: column;
+  }
+
+  .advantageSection section {
+    margin: 10px 0;
   }
 }
 

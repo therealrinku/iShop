@@ -8,6 +8,7 @@ import { AiOutlineCustomerService, AiOutlineMinus } from "react-icons/ai";
 import { GrAdd } from "react-icons/gr";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Item from "../components/Item";
 
 export default function LandingPage({ hottestProducts }) {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -71,11 +72,12 @@ export default function LandingPage({ hottestProducts }) {
           </button>
           {slicedHotItems.map((product) => {
             return (
-              <div>
-                <img src={product.product_image_url} alt="item_image" />
-                <p>{product.product_name}</p>
-                <p>${product.product_price}</p>
-              </div>
+              <Item
+                key={product.productId}
+                imageURL={product.product_image_url}
+                name={product.product_name}
+                price={product.product_price}
+              />
             );
           })}
           <button onClick={() => setSlideIndex((prev) => prev + 1)} disabled={slideIndex === 7}>
