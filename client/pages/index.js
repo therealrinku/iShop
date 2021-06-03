@@ -122,6 +122,10 @@ export default function LandingPage({ hottestProducts }) {
           })}
         </div>
       </section>
+
+      <footer className={styles.footer}>
+        <p>phonyoxx 2021 All rights reserved</p>
+      </footer>
     </main>
   );
 }

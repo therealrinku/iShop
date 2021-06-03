@@ -216,3 +216,10 @@
     width: 92vw;
   }
 }
+
+.footer {
+  margin-top: 20vh;
+  background: #f7f0ea;
+  padding: 20px;
+  text-align: center;
+}
