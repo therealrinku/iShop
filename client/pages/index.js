@@ -36,6 +36,12 @@ export default function LandingPage({ hottestProducts }) {
       question: "How long does it take to get delivery?",
       answer: "Usually it takes between 3-10 days depending on where you are ordering from.",
     },
+    {
+      showAnswer: false,
+      question: "Can i get a refund after buying for some reasons?",
+      answer:
+        "If there is any fault in the device,which is unlikely in such case we offer 95% refund on every product, you can email us if such problem occurs.",
+    },
   ]);
 
   const toggleAnswer = (index) => {
